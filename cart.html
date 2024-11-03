@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Kertas Coret</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background: snow;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        header {
+            background: snow;
+            padding: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid lightgrey;
+            margin-bottom: 4rem;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Lato';
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.25rem;
+        }
+
+        .back-button {
+            font-family: 'Lato';
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .cart-header {
+            background: snow;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .select-all {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-items {
+            background: snow;
+            margin-bottom: 1rem;
+            border: 1px solid lightgrey;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            gap: 1rem;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-name {
+            font-family: 'Lato';
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-price {
+            color: darkcyan;
+            font-weight: 300;
+            font-family: 'Lato';
+            letter-spacing: 1px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .quantity-btn {
+            background: #f5f5f5;
+            border: none;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background: #eee;
+        }
+
+        .quantity-value {
+            font-family: 'Lato';
+            width: 40px;
+            text-align: center;
+        }
+
+        .checkout-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgb(0, 0, 0);
+            padding: 0.5rem;
+            display: none;
+
+        }
+
+        .checkout-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-price {
+            font-weight: bold;
+            font-size: 1rem;
+            font-family: 'Lato';
+            letter-spacing: 1px;
+            color: snow;
+        }
+
+        .checkout-button {
+            background: #ff68b5;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Lato';
+            transition: background 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .checkout-button:hover {
+            background: darkcyan;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: darkcyan;
+            transition: all 0.3s ease;
+        }
+
+        input[type="checkbox"]:hover {
+            accent-color: darkcyan;
+            transform: scale(1.1);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem;
+            background: snow;
+        }
+
+        .empty-cart i {
+            font-size: 3rem;
+            color: snow;
+            margin-bottom: 1rem;
+        }
+
+        .empty-cart p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .shop-now-btn {
+            display: inline-block;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            transition: background 0.3s ease;
+        }
+
+        .shop-now-btn:hover {
+            background: #444;
+        }
+
+        .delete-btn {
+            color: #ff4444;
+            cursor: pointer;
+            padding: 0.5rem;
+
+            transition: background 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background: #ffeeee;
+        }
+
+        #selectAll {
+            cursor: pointer;
+            font-family: 'Lato';
+            font-size: 1rem;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        #selectAll:hover {
+            color: darkcyan;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="header-content">
+            <a href="home.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span>Kembali</span>
+            </a>
+            <div class="logo">KERTAS CORET</div>
+            <div style="width: 100px;"></div>
+        </div>
+    </header>
+    
+
+    <main>
+        <div class="cart-container">
+            <!-- Cart content will be inserted here -->
+        </div>
+    </main>
+
+    <div class="checkout-bar">
+        <div class="checkout-content">
+            <div class="total-price">Total : Rp0</div>
+            <button class="checkout-button">Checkout</button>
+        </div>
+    </div>
+    
+
+    <script>
+        function formatPrice(price) {
+            const formatted = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            }).format(price);
+            
+            return formatted.replace(/IDR\s?/, 'Rp');
+        }
+
+        function renderCart() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const container = document.querySelector('.cart-container');
+
+            if (cartItems.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Keranjang belanja Anda masih kosong</p>
+                        <a href="home.html" class="shop-now-btn">Belanja Sekarang</a>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="cart-header">
+                    <div class="select-all">
+                        <span id="selectAll" onclick="toggleSelectAll()">ALL</span>
+                    </div>
+                </div>
+                <div class="cart-items">
+                    ${cartItems.map((item, index) => `
+                        <div class="cart-item">
+                            <input type="checkbox" ${item.isSelected ? 'checked' : ''} 
+                                onchange="toggleItem(${index})">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="item-info">
+                                <div class="item-name">${item.name}</div>
+                                <div class="item-price">${formatPrice(item.price * (parseInt(item.quantity) || 1))}</div>
+                                <div class="quantity-control">
+                                    <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                                    <span class="quantity-value">${item.quantity}</span>
+                                    <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="delete-btn" onclick="deleteItem(${index})">
+                                <i class="fas fa-trash"></i>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            updateCheckoutBar();
+        }
+
+        function toggleSelectAll() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const isAllSelected = JSON.parse(localStorage.getItem('isAllSelected')) || false;
+
+            cartItems.forEach(item => {
+                item.isSelected = !isAllSelected;
+            });
+
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            localStorage.setItem('isAllSelected', JSON.stringify(!isAllSelected));
+
+            renderCart();
+        }
+
+        function toggleItem(index) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems[index].isSelected = !cartItems[index].isSelected;
+            
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            updateCheckoutBar();
+            
+            const selectAll = document.getElementById('selectAll');
+            selectAll.style.fontWeight = cartItems.every(item => item.isSelected) ? 'bold' : 'normal';
+        }
+
+        function updateQuantity(index, change) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const currentQuantity = parseInt(cartItems[index].quantity || 1);
+            const newQuantity = currentQuantity + change;
+            
+            if (newQuantity > 0) {
+                cartItems[index].quantity = newQuantity;
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                renderCart();
+            }
+        }
+
+        function deleteItem(index) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            renderCart();
+        }
+
+        function updateCheckoutBar() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const selectedItems = cartItems.filter(item => item.isSelected);
+            const checkoutBar = document.querySelector('.checkout-bar');
+            
+            if (selectedItems.length > 0) {
+                const total = selectedItems.reduce((sum, item) => {
+                    const quantity = parseInt(item.quantity || 1);
+                    const price = parseFloat(item.price || 0);
+                    return sum + (price * quantity);
+                }, 0);
+                document.querySelector('.total-price').textContent = `Subtotal: ${formatPrice(total)}`;
+                checkoutBar.style.display = 'block';
+            } else {
+                checkoutBar.style.display = 'none';
+            }
+        }
+
+        // Initialize cart
+        document.addEventListener('DOMContentLoaded', renderCart);
+
+        // Checkout button handler
+        document.querySelector('.checkout-button').addEventListener('click', function() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const selectedItems = cartItems.filter(item => item.isSelected);
+            
+            if (selectedItems.length > 0) {
+                const total = selectedItems.reduce((sum, item) => {
+                    const quantity = parseInt(item.quantity || 1);
+                    const price = parseFloat(item.price || 0);
+                    return sum + (price * quantity);
+                }, 0);
+                alert(`Total pembelian: ${formatPrice(total)}\nProses checkout akan dimulai...`);
+            }
+        });
+    </script>
+    
+</body>
+</html>
