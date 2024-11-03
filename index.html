@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -1249,4 +1250,1257 @@ updateDateTime();
   
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kertas Coret Official Store</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+* 
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Lato', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: snow;
+  overflow-x: hidden;
+}
+.logo {
+font-family: 'Lato', sans-serif;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 5px;
+}
+
+.other-section h2 {
+font-family: 'Lato';
+font-weight: 400;
+letter-spacing: 1px;
+}
+
+
+header {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+background: snow;
+padding: 1.75rem;
+z-index: 1000;
+height: 110px;
+}
+
+.header-content {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.logonya img {
+height: 60px;
+width: auto;
+object-fit: contain;
+}
+.logo {
+flex: 1;
+margin-left: 2.25rem;
+text-align: center;
+font-size: 1.1rem;
+}
+
+.header-icons {
+display: flex;
+gap: 1rem;
+align-items: center;
+}
+
+.cart-icon, .wishlist-icon {
+position: relative;
+padding: 0.5rem 1rem 0.5rem 0.5rem;
+cursor: pointer;
+transition: transform 0.5s ease;
+background: #ff68b5;
+display: flex;
+align-items: center;
+gap: 0.25rem;
+text-decoration: none;
+overflow: hidden;
+color: snow;
+}
+
+.cart-icon:hover, .wishlist-icon:hover {
+transform: scale(1.05);
+background: darkcyan;
+}
+
+.cart-count, .wishlist-count {
+font-size: 0.75rem;
+color: snow;
+font-weight: 300;
+}
+
+
+.section-title {
+text-align: center;
+margin-top: auto;
+margin-bottom: 3rem;
+font-size: 2rem;
+font-weight: 500;
+color: darkcyan;
+font-family: 'Lato';
+letter-spacing: 2px;
+}
+
+.row {
+margin: 2rem 0;
+top:300px;
+border-radius: 0px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+background: snow;
+padding: 1rem ;
+}
+.row-title1 {
+font-size: 1rem;
+margin-bottom: 1rem;
+color: darkcyan;
+font-weight: 600;
+letter-spacing: 6px;
+text-align: center;
+}
+.row-title2 {
+font-size: 1rem;
+margin-bottom: 1rem;
+color: darkcyan;
+font-weight: 600;
+letter-spacing: 6px;
+text-align: center;
+}
+
+.products-container {
+position: relative;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+background: snow;
+}
+
+.products-wrapper {
+display: flex;
+overflow-x: auto;
+gap: 1rem;
+padding: 0.5rem 1rem;
+scroll-behavior: smooth;
+scrollbar-width: none;
+-ms-overflow-style: none;
+scroll-snap-type: x mandatory;
+-webkit-overflow-scrolling: touch;
+background: snow;
+}
+
+.products-wrapper::-webkit-scrollbar {
+display: none;
+}
+
+.product-card {
+flex: 0 0 320px;
+background: snow;
+border-radius: 0px;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+min-height: 450px;
+scroll-snap-align: start;
+transform: translateY(0);
+transition: all 0.3s ease;
+border: 1px solid lightgrey;
+}
+
+.product-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+position: relative;
+height: 350px;
+width: auto;
+overflow: hidden;
+flex-shrink: 0;
+}
+
+.product-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: all 0.3s ease;
+}
+
+.product-image:hover img {
+transform: scale(1.05);
+}
+
+.product-image::after {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(
+to right,
+rgba(255,255,255,0) 0%,
+rgba(255,255,255,0.3) 50%,
+rgba(255,255,255,0) 100%
+);
+transform: skewX(-25deg);
+transition: all 0.75s ease;
+}
+
+.product-card:hover .product-image::after {
+left: 100%;
+}
+
+.product-info {
+padding: 1rem;
+display: flex;
+flex-direction: column;
+flex-grow: 1;
+text-align: center;
+letter-spacing: 1.5px;
+font-size: 0.9rem;
+}
+
+.product-name {
+font-weight: 400;
+font-size: 0.9rem;
+margin-bottom: 0.5rem;
+color: #000000;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+text-align: center;
+letter-spacing: 2px;
+}
+
+.product-description {
+font-weight: 300;
+font-size: 0.9rem;
+color: #000000;
+margin-bottom: 0.5rem;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-align: center;
+letter-spacing: 0.5px;
+}
+
+.product-price {
+font-weight: 300;
+color: darkcyan;
+margin-top: auto;
+padding-top: 0rem;
+position: relative;
+display: inline-block;
+text-align: center;
+}
+
+.product-actions {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem;
+background: snow;
+margin-top: auto;
+text-align: center;
+}
+
+.add-to-cart {
+background: #000000;
+color: white;
+border: none;
+width: 40px;
+height: 40px;
+border-radius: 0px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+overflow: hidden;
+transform: scale(1);
+transition: all 0.3s ease;
+}
+
+.add-to-cart .icon-container {
+display: flex;
+align-items: center;
+gap: 2px;
+transform: translateY(0);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-to-cart:hover .icon-container {
+transform: translateY(-2px);
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.add-to-cart:active {
+transform: scale(0.95);
+}
+
+.mini-notification {
+position: absolute;
+background: #000000;
+color: white;
+padding: 0.3rem 0.6rem;
+border-radius: 20px;
+font-size: 0.8rem;
+font-weight: 300;
+top: -20px;
+right: -10px;
+opacity: 0;
+transform: translateY(10px);
+animation: popUp 0.3s ease forwards;
+}
+
+.stock-count {
+font-size: 0.9rem;
+font-weight: 300;
+color: #000000;
+}
+
+.hak-cipta{
+font-family: sans-serif;
+font-weight: 500;
+letter-spacing: 0.5px;
+text-align: center;
+align-content: center;
+margin-bottom: 20px;
+}
+
+@keyframes popUp {
+0% {
+opacity: 0;
+transform: translateY(10px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes fadeOut {
+0% {
+opacity: 1;
+transform: translateY(0);
+}
+100% {
+opacity: 0;
+transform: translateY(-10px);
+}
+}
+
+.add-to-cart::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(255, 255, 255, 0.1);
+transform: translateY(100%);
+transition: transform 0.3s ease;
+}
+
+.add-to-cart:hover::after {
+transform: translateY(0);
+}
+
+.wishlist-btn {
+border: 1px solid #212121;
+background: snow;
+width: 40px;
+height: 40px;
+border-radius: 0px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+transform: scale(1);
+}
+
+.wishlist-btn:hover {
+background: pink;
+}
+
+.wishlist-btn:active {
+transform: scale(0.95);
+}
+
+.wishlist-btn.active {
+border-color: #ff4444;
+}
+
+.wishlist-btn.active i{
+color: #ff4444;
+animation: heartBeat 0.3s ease-in-out;
+}
+
+.scroll-btn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(255,255,255,0.9);
+border: none;
+width: 40px;
+height: 40px;
+border-radius: 20px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+transition: all 0.3s ease;
+z-index: 10;
+opacity: 0.7;
+}
+
+.scroll-btn:hover {
+opacity: 1;
+transform: translateY(-50%) scale(1.1);
+background: white;
+}
+
+.scroll-btn:active {
+transform: translateY(-50%) scale(0.95);
+}
+
+.scroll-left {
+left: -10px;
+}
+
+.scroll-right {
+right: -10px;
+}
+
+.other-section {
+margin: 2rem 0;
+padding: 2rem;
+background: snow;
+border-radius: 0px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@keyframes heartBeat {
+0% { transform: scale(1); }
+25% { transform: scale(1.2); }
+50% { transform: scale(1); }
+75% { transform: scale(1.2); }
+100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.reset-btn {
+background-color: darkcyan;
+color: lightgray;
+border: none;
+padding: 8px 16px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 14px;
+margin: 10px 10px;
+transition-duration: 0.4s;
+cursor: pointer;
+letter-spacing: 3px;
+}
+
+.reset-btn:hover {
+background-color: rgb(179, 179, 179);
+color: rgb(255, 255, 255);
+}
+
+.search-container {
+width: 100%;
+background-color: snow;
+padding: 2rem;
+position: absolute;
+top: 145px;
+left: auto;
+right: auto;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-bar {
+max-width: 650px;
+margin: auto;
+display: flex;
+align-items: center;
+}
+#search-input:focus {
+border-color: #ccc;
+}
+button:focus,
+input:focus {
+outline: none;
+}
+#search-input {
+flex-grow: 1;
+padding: 0.3rem;
+font-size: 1rem;
+font-family: 'Lato';
+letter-spacing: 1px;
+height: 2rem;
+border: none;
+}
+#search-button {
+padding: 0.5rem 1rem;
+background-color: snow;
+color: palevioletred;
+border: none;
+cursor: pointer;
+height: 2rem;
+}
+#search-button:active {
+transform: scale(0.95);
+}
+#back-to-home {
+padding: 0.5rem 1rem;
+background-color: #000000;
+color: white;
+border: none;
+cursor: pointer;
+height: 2rem;
+margin-left: 10px;
+display: none;
+font-family: 'Lato';
+letter-spacing: 2px;
+}
+
+#back-to-home:hover {
+background-color: #ff68b5;
+}
+
+.search-results .products-wrapper {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+justify-content: center;
+}
+
+.search-results .product-card {
+flex: 0 0 320px;
+background: snow;
+border-radius: 0px;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+min-height: 450px;
+scroll-snap-align: start;
+transform: translateY(0);
+transition: all 0.3s ease;
+border: 1px solid lightgrey;
+}
+
+@media (max-width: 1024px) {
+.search-results .product-card {
+flex: 0 0 calc(50% - 1rem);
+max-width: calc(50% - 1rem);
+}
+}
+
+@media (max-width: 768px) {
+.search-results .product-card {
+flex: 0 0 100%;
+max-width: 100%;
+}
+}
+
+#dateTimeDisplay {
+position: fixed;
+bottom: 10px;
+left: 10px;
+background-color: black;
+color: snow;
+padding: 5px 10px;
+font-family: 'Lato';
+font-size: 0.9rem;
+z-index: 1000;
+}
+
+
+
+.menu-bar {
+    background-color: #000000;
+    padding: 9px 0;
+    position: fixed;
+    top: 110px;
+    z-index: 999;
+    left: auto;
+    right: auto;
+    width: 100%;
+}
+
+.menu-bar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-bar li {
+    margin: 0 15px;
+}
+
+.menu-bar a {
+    color: snow;
+    text-decoration: none;
+    font-family: 'Lato';
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.menu-bar a:hover {
+    color: #ff68b5;
+}
+
+.footer-content {
+    background: darkcyan;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: snow;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.promo-container {
+    position: relative;
+    max-width: 1440px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.promo {
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.promo img {
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.promo img:hover {
+
+}
+
+.promo-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 70px;
+    width: 40px;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.promo-btn:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+
+<div class="header-content">
+<div class="logonya">
+<img src="image/lain/logonya.png" alt="">
+</div>
+<div class="spacer"></div>
+<div class="logo">KERTAS CORET | OFFICIAL STORE</div>
+<div class="header-icons">
+<div class="wishlist-icon">
+<i class="fas fa-heart"></i>
+<span class="wishlist-count">0</span>
+</div>
+<a href="cart.html" class="cart-icon">
+<i class="fas fa-shopping-cart"></i>
+<span class="cart-count">0</span>
+</a>
+</div>
+</div>
+
+</header>
+
+
+<nav class="menu-bar">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+</div>
+
+<main>
+
+    
+    <div class="search-container">
+<div class="search-bar">
+<input type="text" id="search-input" placeholder="Cari produk...">
+<button id="search-button"><i class="fas fa-search"></i></button>
+<button id="back-to-home" style="display: none;">Back</button>
+</div>
+
+<div class="promo-container">
+    <div class="promo">
+        <img src="image/lain/promo1.png" alt="Promo 1">
+    </div>
+    <div class="promo">
+        <img src="image/lain/promo2.png" alt="Promo 2">
+    </div>
+    <div class="promo">
+        <img src="image/lain/promo3.png" alt="Promo 3">
+    </div>
+    <button class="promo-btn prev">&#10094;</button>
+    <button class="promo-btn next">&#10095;</button>
+</div>
+
+
+<!-- Best Seller Section -->
+<div class="row">
+<h2 class="row-title1">BEST SELLER</h2>
+<div class="products-container">
+<button class="scroll-btn scroll-left" onclick="scrollProductLeft('bestseller')">
+<i class="fas fa-chevron-left"></i>
+</button>
+<div class="products-wrapper" id="bestseller">
+<!-- Products will be inserted here -->
+</div>
+<button class="scroll-btn scroll-right" onclick="scrollProductRight('bestseller')">
+<i class="fas fa-chevron-right"></i>
+</button>
+</div>
+</div>
+<!-- New Arrival Section -->
+<div class="row">
+<h2 class="row-title2">NEW ARRIVAL</h2>
+<div class="products-container">
+<button class="scroll-btn scroll-left" onclick="scrollProductLeft('newarrival')">
+<i class="fas fa-chevron-left"></i>
+</button>
+<div class="products-wrapper" id="newarrival">
+<!-- Products will be inserted here -->
+</div>
+<button class="scroll-btn scroll-right" onclick="scrollProductRight('newarrival')">
+<i class="fas fa-chevron-right"></i>
+</button>
+</div>
+</div>
+<!-- Other section -->
+<div class="other-section">
+<h2>Tentang Kami (i)</h2>
+<p>----
+</p>
+</div>
+
+<div>  
+</div>
+<div>
+
+    <footer>
+        <div class="footer-content">  
+            <button onclick="resetLocalStorage()" class="reset-btn">Reset</button>
+            <div class="hak-cipta"><p>&copy;COPYRIGHT 2024 KERTAS CORET. ALL RIGHTS RESERVED.</p></div>
+            <div id="dateTimeDisplay"></div>     
+        </div>
+    </footer>
+    
+</div>
+
+</main>
+
+
+
+<script>
+const products = [
+{
+id: 1,
+name: "Pensil 2B Faber Castell",
+price: 2500,
+image: "./image/produk/produk1.png",
+description: "Pensil berkualitas tinggi dengan harga terjangkau",
+stock: 100
+},
+{
+id: 2,
+name: "Buku Tulis 100 Lembar",
+price: 7500,
+image: "./image/produk/produk2.png",
+description: "Buku tulis ukuran A5 dengan kertas berkualitas",
+stock: 200
+},
+{
+id: 3,
+name: "Pulpen Gel Joyko 0.5mm",
+price: 3500,
+image: "https://placehold.co/300x300",
+description: "Pulpen gel dengan ujung 0.5mm untuk tulisan halus",
+stock: 150
+},
+{
+id: 4,
+name: "Penghapus Staedtler",
+price: 4000,
+image: "https://placehold.co/300x300",
+description: "Penghapus berkualitas tinggi untuk pensil",
+stock: 80
+},
+{
+id: 5,
+name: "Penggaris 30cm Butterfly",
+price: 6000,
+image: "https://placehold.co/300x300",
+description: "Penggaris plastik transparan 30cm",
+stock: 120
+},
+{
+id: 6,
+name: "Stabilo Highlighter Set",
+price: 25000,
+image: "https://placehold.co/300x300",
+description: "Set stabilo highlighter 5 warna",
+stock: 75
+},
+{
+id: 7,
+name: "Sticky Notes 3M",
+price: 15000,
+image: "https://placehold.co/300x300",
+description: "Paket sticky notes dengan berbagai ukuran",
+stock: 100
+},
+{
+id: 8,
+name: "Kalkulator Scientific Casio",
+price: 150000,
+image: "https://placehold.co/300x300",
+description: "Kalkulator scientific untuk pelajar dan mahasiswa",
+stock: 50
+},
+{
+id: 9,
+name: "Tempat Pensil Smiggle",
+price: 85000,
+image: "https://placehold.co/300x300",
+description: "Tempat pensil dengan desain modern dan lucu",
+stock: 60
+},
+{
+id: 10,
+name: "Kertas Origami Sidu",
+price: 12000,
+image: "https://placehold.co/300x300",
+description: "Set kertas origami dengan 100 lembar berbagai warna",
+stock: 90
+},
+{
+id: 11,
+name: "Pensil Warna Faber Castell 24",
+price: 45000,
+image: "https://placehold.co/300x300",
+description: "Set pensil warna 24 warna Faber Castell",
+stock: 70
+},
+{
+id: 12,
+name: "Spidol Boardmarker Snowman",
+price: 7500,
+image: "https://placehold.co/300x300",
+description: "Spidol boardmarker hitam untuk papan tulis",
+stock: 110
+},
+{
+id: 13,
+name: "Map Plastik Bening F4",
+price: 2000,
+image: "https://placehold.co/300x300",
+description: "Map plastik transparan ukuran F4 untuk dokumen",
+stock: 250
+},
+{
+id: 14,
+name: "Stapler Kenko HD-10",
+price: 18000,
+image: "https://placehold.co/300x300",
+description: "Stapler dengan desain ergonomis untuk penggunaan sehari-hari",
+stock: 85
+},
+{
+id: 15,
+name: "Tipe-X Kenko",
+price: 5000,
+image: "https://placehold.co/300x300",
+description: "Tipe-X cair untuk koreksi tulisan",
+stock: 130
+},
+{
+id: 16,
+name: "Agenda Harian 2024",
+price: 35000,
+image: "https://placehold.co/300x300",
+description: "Agenda harian tahun 2024 dengan cover hardcover",
+stock: 100
+},
+{
+id: 17,
+name: "Gunting Kenko 5 Inch",
+price: 9000,
+image: "https://placehold.co/300x300",
+description: "Gunting serbaguna ukuran 5 inch",
+stock: 95
+},
+{
+id: 18,
+name: "Lem Stick UHU 8.2g",
+price: 7500,
+image: "https://placehold.co/300x300",
+description: "Lem stick untuk kertas dan karton",
+stock: 140
+},
+{
+id: 19,
+name: "Binder Clip Joyko 155",
+price: 6000,
+image: "https://placehold.co/300x300",
+description: "Set binder clip ukuran 15mm, isi 12 pcs",
+stock: 180
+},
+{
+id: 20,
+name: "Correction Tape Joyko 5mm x 6m",
+price: 8000,
+image: "https://placehold.co/300x300",
+description: "Correction tape untuk koreksi tulisan, panjang 6 meter",
+stock: 120
+}
+];
+function formatPrice(price) {
+const formatted = new Intl.NumberFormat('id-ID', {
+style: 'currency',
+currency: 'IDR'
+}).format(price);
+
+return formatted.replace(/IDR\s?/, 'Rp');
+}
+
+function renderProducts(containerId, startIndex, endIndex) {
+const container = document.getElementById(containerId);
+const productsToRender = products.slice(startIndex, endIndex);
+container.innerHTML = productsToRender.map((product, index) => `
+<div class="product-card" style="animation: fadeIn 0.3s ease-out ${index * 0.1}s forwards;">
+<div class="product-image">
+<img src="${product.image}" alt="${product.name}">
+</div>
+<div class="product-info">
+<h3 class="product-name">${product.name}</h3>
+<p class="product-description">${product.description}</p>
+<p class="product-price">${formatPrice(product.price)}</p>
+</div>
+<div class="product-actions">
+<button class="add-to-cart" onclick="addToCart(${product.id}, event)" title="Tambah ke Keranjang">
+<span class="icon-container">
+<i class="fas fa-shopping-cart"></i>
+<i class="fas fa-plus" style="font-size: 0.7em;"></i>
+</span>
+</button>
+<span class="stock-count">Stok: ${product.stock}</span>
+<button class="wishlist-btn ${wishlistItems.has(product.id) ? 'active' : ''}"
+onclick="addToWishlist(${product.id}, event)"
+title="Tambah ke Wishlist">
+<i class="fas fa-heart"></i>
+</button>
+</div>
+</div>
+`).join('');
+}
+
+function scrollProductLeft(containerId) {
+const container = document.getElementById(containerId);
+const cardWidth = 320;
+const gap = 16;
+const scrollDistance = cardWidth + gap;
+container.scrollLeft -= scrollDistance;
+}
+
+function scrollProductRight(containerId) {
+const container = document.getElementById(containerId);
+const cardWidth = 320;
+const gap = 16;
+const scrollDistance = cardWidth + gap;
+container.scrollLeft += scrollDistance;
+}
+
+function addToCart(productId, event) {
+let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+const existingItemIndex = cartItems.findIndex(item => item.id === productId);
+
+if (existingItemIndex > -1) {
+cartItems[existingItemIndex].quantity = parseInt(cartItems[existingItemIndex].quantity || 0) + 1;
+} else {
+const product = products.find(p => p.id === productId);
+cartItems.push({
+...product,
+quantity: 1,
+isSelected: false
+});
+}
+
+localStorage.setItem('cartItems', JSON.stringify(cartItems));
+updateCartCount();
+
+const cartButton = event.target.closest('.add-to-cart');
+const notification = document.createElement('div');
+notification.className = 'mini-notification';
+notification.textContent = '+1';
+cartButton.appendChild(notification);
+
+setTimeout(() => {
+notification.style.animation = 'fadeOut 0.3s ease forwards';
+setTimeout(() => notification.remove(), 300);
+}, 1000);
+}
+
+function updateCartCount() {
+const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+const totalItems = cartItems.reduce((sum, item) => sum + (parseInt(item.quantity) || 0), 0);
+document.querySelector('.cart-count').textContent = totalItems;
+}
+
+const wishlistItems = new Set(JSON.parse(localStorage.getItem('wishlistItems') || '[]'));
+
+function addToWishlist(productId, event) {
+const wishlistBtn = event.target.closest('.wishlist-btn');
+
+if (wishlistItems.has(productId)) {
+wishlistItems.delete(productId);
+wishlistBtn.classList.remove('active');
+} else {
+wishlistItems.add(productId);
+wishlistBtn.classList.add('active');
+}
+
+localStorage.setItem('wishlistItems', JSON.stringify([...wishlistItems]));
+updateWishlistCount();
+}
+
+function updateWishlistCount() {
+document.querySelector('.wishlist-count').textContent = wishlistItems.size;
+}
+
+function searchProducts() {
+const searchTerm = document.getElementById('search-input').value.toLowerCase();
+const filteredProducts = products.filter(product =>
+product.name.toLowerCase().includes(searchTerm) ||
+product.description.toLowerCase().includes(searchTerm)
+);
+
+renderSearchResults(filteredProducts);
+showBackToHomeButton();
+}
+
+function renderSearchResults(results) {
+const mainContent = document.querySelector('main');
+mainContent.innerHTML = '';
+
+const searchResultsContainer = document.createElement('div');
+searchResultsContainer.className = 'search-results';
+searchResultsContainer.innerHTML = `
+<h2 class="section-title"> m </h2>
+<div class="products-container">
+<div class="products-wrapper" id="search-results">
+${results.map(product => `
+<div class="product-card">
+<div class="product-image">
+<img src="${product.image}" alt="${product.name}">
+</div>
+<div class="product-info">
+<h3 class="product-name">${product.name}</h3>
+<p class="product-description">${product.description}</p>
+<p class="product-price">${formatPrice(product.price)}</p>
+</div>
+<div class="product-actions">
+<button class="add-to-cart" onclick="addToCart(${product.id}, event)" title="Tambah ke Keranjang">
+<span class="icon-container">
+<i class="fas fa-shopping-cart"></i>
+<i class="fas fa-plus" style="font-size: 0.7em;"></i>
+</span>
+</button>
+<span class="stock-count">Stok: ${product.stock}</span>
+<button class="wishlist-btn ${wishlistItems.has(product.id) ? 'active' : ''}"
+onclick="addToWishlist(${product.id}, event)"
+title="Tambah ke Wishlist">
+<i class="fas fa-heart"></i>
+</button>
+</div>
+</div>
+`).join('')}
+</div>
+</div>
+`;
+mainContent.appendChild(searchResultsContainer);
+}
+
+function showBackToHomeButton() {
+document.getElementById('back-to-home').style.display = 'block';
+}
+
+function hideBackToHomeButton() {
+document.getElementById('back-to-home').style.display = 'none';
+}
+
+function backToHome() {
+location.reload();
+}
+
+function resetLocalStorage() {
+localStorage.clear();
+updateCartCount();
+updateWishlistCount();
+location.reload();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+renderProducts('bestseller', 0, 5);
+renderProducts('newarrival', 5, 20);
+updateCartCount();
+updateWishlistCount();
+
+document.getElementById('search-button').addEventListener('click', searchProducts);
+document.getElementById('search-input').addEventListener('keypress', function(e) {
+if (e.key === 'Enter') {
+searchProducts();
+}
+});
+document.getElementById('back-to-home').addEventListener('click', backToHome);
+});
+</script>
+
+
+<script>
+function updateDateTime() {
+const dateTimeDisplay = document.getElementById('dateTimeDisplay');
+const now = new Date();
+
+const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
+const dayName = days[now.getDay()];
+const day = now.getDate();
+const month = months[now.getMonth()];
+const year = now.getFullYear();
+const hours = now.getHours().toString().padStart(2, '0');
+const minutes = now.getMinutes().toString().padStart(2, '0');
+const seconds = now.getSeconds().toString().padStart(2, '0');
+
+dateTimeDisplay.textContent = `${dayName}, ${day} ${month} ${year} - ${hours}:${minutes}:${seconds}`;
+}
+
+
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("promo");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 5000); // Change image every 5 seconds
+}
+
+function plusSlides(n) {
+    showSlidesByIndex(slideIndex += n);
+}
+
+function showSlidesByIndex(n) {
+    let i;
+    let slides = document.getElementsByClassName("promo");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex-1].style.display = "block";
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ... (your existing code)
+
+    // Add event listeners for promo buttons
+    document.querySelector('.prev').addEventListener('click', () => plusSlides(-1));
+    document.querySelector('.next').addEventListener('click', () => plusSlides(1));
+});
+// Update waktu setiap detik
+setInterval(updateDateTime, 1000);
+
+// Panggil fungsi pertama kali untuk inisialisasi
+updateDateTime();
+</script>
+  
+</body>
+
+>>>>>>> 18168f7b218ad432588d699af17b12e215d68903
 </html>
