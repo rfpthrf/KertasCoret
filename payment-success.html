@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran Berhasil - Kertas Coret</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rubik';
+        }
+
+        body {
+            background: snow;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .success-container {
+            background: white;
+            padding: 3rem;
+
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .success-icon {
+            color: #4CAF50;
+            font-size: 5rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .back-to-home {
+            background: darkcyan;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+
+            transition: background 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            background: #007777;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <i class="fas fa-check-circle success-icon"></i>
+        <h1>Pembayaran Berhasil!</h1>
+        <p>Nomor Pesanan : 0001A <br><br>
+            Terima kasih atas pembelian Anda. Pesanan Anda akan segera diproses. Silahkan Hubungi E-mail dan WhatsApp untuk Proses Pengiriman</p>
+        <a href="https://wa.me/6289524055718?text=Selamat%20siang!%20Admin%20Kertas%20Coret.%20Saya%20pelanggan%20nomor%20%3A%2001%20konfirmasi%20pesanan%20nomor%20%3A%200001A." 
+           class="back-to-home" 
+           target="_blank">
+            <i class="fab fa-whatsapp"></i> Hubungi WhatsApp
+        </a>
+    </div>
+</body>
+</html>

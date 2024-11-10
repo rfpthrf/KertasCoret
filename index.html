@@ -1,0 +1,2740 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kertas Coret Official Store</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+* 
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Rubik', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: snow;
+  overflow-x: hidden;
+}
+.logo {
+font-family: 'Rubik';
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 5px;
+}
+
+.other-section h2 {
+font-family: 'Rubik';
+font-weight: 600;
+letter-spacing: 1px;
+margin-bottom: 1rem;
+text-align: center;
+
+}
+
+
+header {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+background: snow;
+padding: 1.75rem;
+z-index: 1000;
+height: 110px;
+}
+
+.header-content {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.logonya img {
+height: 60px;
+width: auto;
+object-fit: contain;
+}
+.logo {
+flex: 1;
+margin-left: 2.25rem;
+text-align: center;
+font-size: 1.1rem;
+}
+
+.header-icons {
+display: flex;
+gap: 1rem;
+align-items: center;
+}
+
+.cart-icon, .wishlist-icon {
+position: relative;
+padding: 0.5rem 1rem 0.5rem 0.5rem;
+cursor: pointer;
+transition: transform 0.5s ease;
+background: #ff68b5;
+display: flex;
+align-items: center;
+gap: 0.25rem;
+text-decoration: none;
+overflow: hidden;
+color: snow;
+
+}
+
+.cart-icon:hover, .wishlist-icon:hover {
+transform: scale(1.05);
+background: darkcyan;
+}
+
+.cart-count, .wishlist-count {
+font-size: 0.75rem;
+color: snow;
+font-weight: 300;
+}
+
+
+.section-title {
+text-align: center;
+margin-top: auto;
+margin-bottom: 3rem;
+font-size: 2rem;
+font-weight: 500;
+color: darkcyan;
+font-family: 'Rubik';
+letter-spacing: 2px;
+}
+
+.row {
+margin: 2rem 0;
+top:300px;
+border-radius: 0px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+background: snow;
+padding: 1rem ;
+
+}
+.row-title1 {
+font-size: 1rem;
+margin-bottom: 1rem;
+color: darkcyan;
+font-weight: 600;
+letter-spacing: 6px;
+text-align: center;
+}
+.row-title3 {
+font-size: 1rem;
+margin-bottom: 1rem;
+color: darkcyan;
+font-weight: 600;
+letter-spacing: 6px;
+text-align: center;
+}
+.row-title3d {
+font-size: 1rem;
+margin-bottom: 1rem;
+color: rgb(169, 168, 168);
+font-weight: 600;
+letter-spacing: 6px;
+text-align: center;
+}
+
+.row-title2 {
+font-size: 1rem;
+margin-bottom: 1rem;
+color: darkcyan;
+font-weight: 600;
+letter-spacing: 6px;
+text-align: center;
+}
+
+.products-container {
+position: relative;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+background: snow;
+}
+
+.products-wrapper {
+display: flex;
+overflow-x: auto;
+gap: 1rem;
+padding: 0.5rem 1rem;
+scroll-behavior: smooth;
+scrollbar-width: none;
+-ms-overflow-style: none;
+scroll-snap-type: x mandatory;
+-webkit-overflow-scrolling: touch;
+background: snow;
+}
+
+.products-wrapper::-webkit-scrollbar {
+display: none;
+}
+
+.product-card {
+flex: 0 0 320px;
+background: snow;
+border-radius: 0px;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+min-height: 450px;
+scroll-snap-align: start;
+transform: translateY(0);
+transition: all 0.3s ease;
+
+}
+
+.product-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  position: relative;
+  height: 350px;
+  width: auto;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.product-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: all 0.3s ease;
+}
+
+.product-image:hover img {
+transform: scale(1.05);
+}
+
+.product-image::after {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(
+to right,
+rgba(255,255,255,0) 0%,
+rgba(255,255,255,0.3) 50%,
+rgba(255,255,255,0) 100%
+);
+transform: skewX(-25deg);
+transition: all 0.75s ease;
+}
+
+.product-card:hover .product-image::after {
+left: 100%;
+}
+
+.product-info {
+padding: 1rem;
+display: flex;
+flex-direction: column;
+flex-grow: 1;
+text-align: center;
+letter-spacing: 1.5px;
+font-size: 0.9rem;
+}
+
+.product-name {
+font-weight: 400;
+font-size: 0.9rem;
+margin-bottom: 0.5rem;
+color: #000000;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+text-align: center;
+letter-spacing: 2px;
+}
+
+.product-description {
+font-weight: 300;
+font-size: 0.9rem;
+color: #000000;
+margin-bottom: 0.5rem;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-align: center;
+letter-spacing: 0.5px;
+text-align: justify;
+}
+
+.product-price {
+font-weight: 300;
+color: darkcyan;
+margin-top: auto;
+padding-top: 0rem;
+position: relative;
+display: inline-block;
+text-align: center;
+}
+.original-price {
+    color: #999;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+    font-weight: 500;
+}
+
+.final-price {
+    color: darkcyan;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.product-actions {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem;
+background: snow;
+margin-top: auto;
+text-align: center;
+}
+
+.add-to-cart {
+background: #000000;
+color: white;
+border: none;
+width: 40px;
+height: 40px;
+border-radius: 0px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+overflow: hidden;
+transform: scale(1);
+transition: all 0.3s ease;
+}
+
+.add-to-cart .icon-container {
+display: flex;
+align-items: center;
+gap: 2px;
+transform: translateY(0);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-to-cart:hover .icon-container {
+transform: translateY(-2px);
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.add-to-cart:active {
+transform: scale(0.95);
+}
+
+.mini-notification {
+position: absolute;
+background: #000000;
+color: white;
+padding: 0.3rem 0.6rem;
+border-radius: 20px;
+font-size: 0.8rem;
+font-weight: 300;
+top: -20px;
+right: -10px;
+opacity: 0;
+transform: translateY(10px);
+animation: popUp 0.3s ease forwards;
+}
+
+.stock-count {
+font-size: 0.9rem;
+font-weight: 300;
+color: #000000;
+}
+
+.hak-cipta{
+font-family: sans-serif;
+font-weight: 500;
+letter-spacing: 0.5px;
+text-align: center;
+align-content: center;
+margin-bottom: 20px;
+}
+
+@keyframes popUp {
+0% {
+opacity: 0;
+transform: translateY(10px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes fadeOut {
+0% {
+opacity: 1;
+transform: translateY(0);
+}
+100% {
+opacity: 0;
+transform: translateY(-10px);
+}
+}
+
+.add-to-cart::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(255, 255, 255, 0.1);
+transform: translateY(100%);
+transition: transform 0.3s ease;
+}
+
+.add-to-cart:hover::after {
+transform: translateY(0);
+}
+
+.wishlist-btn {
+border: 1px solid #212121;
+background: snow;
+width: 40px;
+height: 40px;
+border-radius: 0px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+transform: scale(1);
+}
+
+.wishlist-btn:hover {
+background: pink;
+}
+
+.wishlist-btn:active {
+transform: scale(0.95);
+}
+
+.wishlist-btn.active {
+border-color: #ff4444;
+}
+
+.wishlist-btn.active i{
+color: #ff4444;
+animation: heartBeat 0.3s ease-in-out;
+}
+
+.scroll-btn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(255,255,255,0.9);
+border: none;
+width: 40px;
+height: 40px;
+border-radius: 20px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+transition: all 0.3s ease;
+z-index: 10;
+opacity: 0.7;
+}
+
+.scroll-btn:hover {
+opacity: 1;
+transform: translateY(-50%) scale(1.1);
+background: white;
+}
+
+.scroll-btn:active {
+transform: translateY(-50%) scale(0.95);
+}
+
+.scroll-left {
+left: -10px;
+}
+
+.scroll-right {
+right: -10px;
+}
+
+.other-section {
+margin: 2rem 0;
+padding: 2rem;
+background: snow;
+border-radius: 0px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+text-align: justify;
+font-family: 'Rubik';
+
+}
+
+@keyframes heartBeat {
+0% { transform: scale(1); }
+25% { transform: scale(1.2); }
+50% { transform: scale(1); }
+75% { transform: scale(1.2); }
+100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.reset-btn {
+background-color: darkcyan;
+color: lightgray;
+border: none;
+padding: 8px 16px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 14px;
+margin: 10px 10px;
+transition-duration: 0.4s;
+cursor: pointer;
+letter-spacing: 3px;
+}
+
+.reset-btn:hover {
+background-color: rgb(179, 179, 179);
+color: rgb(255, 255, 255);
+}
+
+.search-container {
+width: 100%;
+background-color: snow;
+padding: 2rem;
+position: absolute;
+top: 145px;
+left: auto;
+right: auto;
+}
+
+.search-bar {
+max-width: 650px;
+margin: auto;
+display: flex;
+align-items: center;
+margin-bottom: 2rem;
+}
+#search-input:focus {
+border-color: #ccc;
+}
+button:focus,
+input:focus {
+outline: none;
+}
+#search-input {
+flex-grow: 1;
+padding: 0.3rem;
+font-size: 1rem;
+font-family: 'Rubik';
+letter-spacing: 1px;
+height: 2.5rem;
+border: none;
+}
+#search-button {
+padding: 0.5rem 1rem;
+background-color: snow;
+color: palevioletred;
+border: none;
+cursor: pointer;
+height: 2rem;
+}
+#search-button:active {
+transform: scale(0.95);
+}
+#back-to-home {
+padding: 0.5rem 1rem;
+background-color: #000000;
+color: white;
+left: 1rem;
+border: none;
+cursor: pointer;
+height: 2.5rem;
+margin-left: 10px;
+display: none;
+font-family: 'Rubik';
+letter-spacing: 2px;
+margin-top: 0rem;
+position: absolute;
+}
+
+#back-to-home:hover {
+background-color: #ff68b5;
+}
+.search-results {
+    margin-top: 14rem; /* Naikkan sedikit dari 12rem menjadi 14rem */
+    padding-top: 2rem; /* Tambahkan padding top */
+}
+.search-results .products-wrapper {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+justify-content: center;
+}
+
+.search-results .product-card {
+flex: 0 0 320px;
+background: snow;
+border-radius: 0px;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+min-height: 450px;
+scroll-snap-align: start;
+transform: translateY(0);
+transition: all 0.3s ease;
+border: 1px solid lightgrey;
+}
+
+@media (max-width: 1024px) {
+.search-results .product-card {
+flex: 0 0 calc(50% - 1rem);
+max-width: calc(50% - 1rem);
+}
+}
+
+@media (max-width: 768px) {
+.search-results .product-card {
+flex: 0 0 100%;
+max-width: 100%;
+}
+}
+
+#dateTimeDisplay {
+position: fixed;
+bottom: 10px;
+left: 10px;
+background-color: black;
+color: snow;
+padding: 5px 10px;
+font-family: 'Rubik';
+font-size: 0.9rem;
+z-index: 1000;
+}
+
+
+
+.menu-bar {
+    background-color: #000000;
+    padding: 9px 0;
+    position: fixed;
+    top: 110px;
+    z-index: 999;
+    left: auto;
+    right: auto;
+    width: 100%;
+}
+
+.menu-bar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-bar li {
+    margin: 0 15px;
+}
+
+.menu-bar a {
+    color: snow;
+    text-decoration: none;
+    font-family: 'Rubik';
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.menu-bar a:hover {
+    color: #ff68b5;
+}
+
+.footer-content {
+    background: darkcyan;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: snow;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.promo-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: darkcyan;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+.promo-container {
+    position: relative;
+    max-width: 1440px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.promo {
+    position: relative;
+    overflow: hidden; /* Penting untuk efek shine */
+}
+
+.promo img {
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+/* Efek shine/cahaya */
+.promo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    z-index: 2;
+    display: block;
+    width: 50%;
+    height: 100%;
+    background: -webkit-linear-gradient(
+        left,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    transform: skewX(-25deg);
+    transition: all 0.75s ease;
+}
+
+/* Animasi shine saat hover */
+.promo:hover::before {
+    animation: shine 0.75s;
+}
+
+/* Efek zoom saat hover */
+.promo:hover img {
+
+}
+
+@keyframes shine {
+    100% {
+        left: 125%;
+    }
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+.promo-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.promo-btn:hover {
+    background-color: rgba(0,0,0,0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Indikator dots */
+.dots-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+.desc-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.desc-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.desc-btn i {
+  font-size: 18px;
+}
+
+body.popup-active {
+  overflow: hidden;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #000;
+}
+
+.product-details {
+  margin-top: 20px;
+}
+
+
+.product-details h2 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+.product-details h3{ 
+  text-align: center;
+  font-size: 1rem;
+}
+.product-details h4{ 
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.product-details p {
+  margin-bottom: 5px;
+  text-align: justify;
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* Atur ukuran font 25% lebih kecil pada perangkat mobile */
+    * {
+        font-size: calc(100% - 25%);
+    }
+    
+    /* Atur ukuran elemen lainnya jika perlu */
+    .header-content {
+        padding: 1rem 0.5rem;
+    }
+    
+    .logo {
+        font-size: 1rem;
+    }
+    
+    .cart-header {
+        padding: 0.5rem;
+    }
+    
+    .checkout-items {
+        padding: 0.5rem;
+    }
+    
+    .payment-methods {
+        padding: 0.5rem;
+    }
+    
+    .place-order-button {
+        padding: 0.5rem 1rem;
+    }
+}
+
+.contact-person {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.contact-person h3 {
+    margin-bottom: 1rem;
+    font-family: 'Rubik';
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.contact-logos {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Spasi antara logo */
+    margin-top: 1rem;
+}
+
+.social-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+    color: darkcyan;
+}
+
+.fa-instagram {
+    background: -webkit-linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fa-whatsapp {
+    color: #25D366;
+}
+
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+    position: relative;
+    min-width: 300px;
+}
+
+.admin-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.settings-icon {
+    background: #333;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.settings-icon:hover {
+    background: darkcyan;
+    transform: scale(1.1);
+}
+
+.admin-controls {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    background: white;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 250px;
+    display: none;
+}
+
+.stock-control {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stock-control input {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.stock-control button {
+    background: darkcyan;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.stock-control button:hover {
+    background: #006666;
+}
+
+
+
+.reviews-section {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.comments-container {
+    margin-top: 10px;
+}
+
+.comment {
+    background: #f9f9f9;
+
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment-name {
+    font-weight: bold;
+}
+
+.comment-rating {
+    color: gold;
+    font-size: 1.2em;
+}
+
+.comment-date {
+    color: #888;
+    font-size: 0.8em;
+}
+
+.comment-text {
+    font-style: italic;
+}
+
+#show-all-comments {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #f0f0f0;
+    border: none;
+ 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#show-all-comments:hover {
+    background-color: #e0e0e0;
+}
+
+
+
+.sales-report-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: darkcyan;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+}
+
+.sales-report-btn:hover {
+    background: #006666;
+}
+
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.products-grid .product-card {
+    margin: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+
+<div class="header-content">
+<div class="logonya">
+<img src="image/lain/logonya.png" alt="">
+</div>
+<div class="spacer"></div>
+<div class="logo">KERTAS CORET | OFFICIAL STORE</div>
+<div class="header-icons">
+<div class="wishlist-icon">
+<i class="fas fa-heart"></i>
+<span class="wishlist-count">0</span>
+</div>
+<a href="cart.html" class="cart-icon">
+<i class="fas fa-shopping-cart"></i>
+<span class="cart-count">0</span>
+</a>
+</div>
+</div>
+
+</header>
+
+
+<nav class="menu-bar">
+  <ul>
+    <li><a href="#" onclick="goToHome(); return false;">Home</a></li>
+    <li><a href="#" onclick="scrollToFlashSale(); return false;">Products</a></li>
+    <li><a href="#" onclick="scrollToAboutUs(); return false;">About Us</a></li>
+    <li><a href="#" onclick="scrollToFooter(); return false;">Contact</a></li>
+  </ul>
+</nav>
+
+
+</div>
+
+<main>
+
+    
+    <div class="search-container">
+        <div class="search-bar">
+          <input type="text" id="search-input" placeholder="Cari produk...">
+          <button id="search-button"><i class="fas fa-search"></i></button>
+
+        </div>
+      
+
+        <h2 class="promo-title">PROMO TERBARU</h2>
+        <div class="promo-container">
+            <div class="promo">
+                <img src="image/lain/promo1.png" alt="Promo 1">
+            </div>
+            <div class="promo">
+                <img src="image/lain/promo2.png" alt="Promo 2">
+            </div>
+            <div class="promo">
+                <img src="image/lain/promo3.png" alt="Promo 3">
+            </div>
+            <button class="promo-btn prev" onclick="plusSlides(-1)">❮</button>
+            <button class="promo-btn next" onclick="plusSlides(1)">❯</button>
+        </div>
+
+<!-- Flash Sale Section -->
+<div class="row">
+  <h2 class="row-title3">⚡FLASH SALE⚡</h2>
+  <div class="row-title3d">Berakhir dalam 3 Hari</div>
+  <div class="products-container">
+      <button class="scroll-btn scroll-left" onclick="scrollProductLeft('flashsale')">
+          <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="products-wrapper" id="flashsale">
+          <!-- Flash sale products will be inserted here -->
+      </div>
+      <button class="scroll-btn scroll-right" onclick="scrollProductRight('flashsale')">
+          <i class="fas fa-chevron-right"></i>
+      </button>
+  </div>
+</div>
+<!-- Best Seller Section -->
+<div class="row">
+    <h2 class="row-title1">BEST SELLER🔝</h2>
+    <div class="products-container">
+        <button class="scroll-btn scroll-left" onclick="scrollProductLeft('bestseller')">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="products-wrapper" id="bestseller">
+            <!-- Best seller products will be inserted here -->
+        </div>
+        <button class="scroll-btn scroll-right" onclick="scrollProductRight('bestseller')">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+<!-- New Arrival Section -->
+<div class="row">
+<h2 class="row-title2">NEW ARRIVAL🆕</h2>
+<div class="products-container">
+<button class="scroll-btn scroll-left" onclick="scrollProductLeft('newarrival')">
+<i class="fas fa-chevron-left"></i>
+</button>
+<div class="products-wrapper" id="newarrival">
+<!-- Products will be inserted here -->
+</div>
+<button class="scroll-btn scroll-right" onclick="scrollProductRight('newarrival')">
+<i class="fas fa-chevron-right"></i>
+</button>
+</div>
+</div>
+<div class="row">
+    <h2 class="row-title2">ALL PRODUCTS📋</h2>
+    <div class="products-container">
+        <div class="products-grid" id="allproducts">
+            <!-- Products will be inserted here -->
+        </div>
+    </div>
+</div>
+<div class="other-section">
+  <h2>TENTANG KAMI ⓘ</h2>
+  <p>Kami adalah toko online yang didedikasikan untuk menyediakan berbagai kebutuhan stationery, dari alat tulis, buku catatan, hingga perlengkapan kantor lainnya. Misi kami adalah membantu Anda menyalurkan kreativitas dan produktivitas melalui produk berkualitas yang terjangkau.
+    <br><br>
+    Mengapa Kertas Coret?
+    <br>
+    Produk Berkualitas <br>– Kami bekerja sama dengan berbagai merek ternama untuk memastikan Anda mendapatkan produk yang terbaik.
+    Harga Terjangkau <br>– Dengan harga yang kompetitif, kami ingin menjadi pilihan utama Anda dalam memenuhi kebutuhan stationery.
+    Pelayanan Prima <br>– Kami berusaha memberikan pelayanan yang ramah dan responsif, memastikan kepuasan pelanggan setiap saat.
+    Produk Kami
+  
+    <br><br>Di Kertas Coret, Anda bisa menemukan berbagai produk seperti:
+  
+   <br> Alat tulis (pena, pensil, spidol, dan lainnya)
+    <br>Buku dan kertas (buku tulis, buku catatan, sticky notes)
+    <br>Alat kantor (stapler, perforator, penggaris)
+    <br>Dekorasi meja dan aksesori kerja
+    <br><br>Kami percaya bahwa alat tulis bukan sekadar benda biasa, tetapi media untuk mengekspresikan ide, perasaan, dan kreativitas. Kertas Coret hadir untuk membantu setiap coretan Anda menjadi sesuatu yang lebih bermakna.  </p>
+  <div class="contact-person">
+      <h3>Contact</h3>
+      <div class="contact-logos">
+          <a href="https://www.instagram.com/kertas.coret_stationery?igsh=Zmh0OHRybTUyZjB5" target="_blank">
+              <img src="image/iglogo.png" alt="Instagram" width="30px" height="30px">
+          </a>
+          <a href="https://api.whatsapp.com/send/?phone=6289524055718&text&type=phone_number&app_absent=0" target="_blank">
+              <img src="image/walogo.png" alt="WhatsApp" width="30px" height="30px">
+          </a>
+      </div>
+  </div>
+</div>
+</div>
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="footer-content">  
+          <button onclick="resetLocalStorage()" class="reset-btn">Reset</button>
+          <div class="hak-cipta"><p>&copy;COPYRIGHT 2024 KERTAS CORET. ALL RIGHTS RESERVED.</p></div>
+          <div id="dateTimeDisplay"></div>     
+        </div>
+      </footer>
+</main>
+
+
+
+<script>
+const products = [
+{
+id: 1,
+name: "Pensil 2B Faber Castell",
+originalPrice: 4500,
+price: 2500,
+image: "./image/produk/produk1.png",
+description: "Pensil 2B Faber-Castell adalah alat tulis berkualitas tinggi yang dirancang untuk keperluan menulis dan menggambar dengan ketajaman dan presisi. Pensil ini memiliki tekstur yang lembut, memberikan garis hitam yang kuat dan jelas, sehingga cocok digunakan untuk ujian, sketsa, hingga kebutuhan seni. Dilengkapi dengan bodi kayu yang kokoh serta lapisan yang nyaman digenggam, pensil ini tahan lama dan tidak mudah patah. Selain itu, pensil ini ramah lingkungan karena dibuat dari kayu bersertifikasi FSC yang berkelanjutan. Pilihan tepat untuk pelajar, seniman, dan profesional.",
+stock: 9999
+}
+,
+{
+id: 2,
+name: "Buku Tulis 100 Lembar",
+originalPrice: 15500,
+price: 10500,
+image: "./image/produk/produk2.png",
+description: "Buku tulis berkualitas dengan desain simpel dan elegan, cocok untuk kebutuhan sekolah, kuliah, hingga pekerjaan. Buku ini hadir dalam ukuran A5 yang praktis dan mudah dibawa ke mana-mana. Dengan 100 lembar halaman bergaris, buku ini ideal untuk mencatat, membuat daftar tugas, atau mencatat ide-ide penting.",
+stock: 7999
+}
+,
+{
+id: 3,
+name: "Gunting Anti Karat",
+originalPrice: 13500,
+price: 10000,
+image: "./image/produk/produk3.png",
+description: " Gunting anti karat ini dirancang untuk berbagai keperluan, baik di rumah, kantor, maupun kegiatan kerajinan tangan. Terbuat dari baja berkualitas tinggi yang dilapisi material anti karat, gunting ini tahan lama dan tidak mudah berkarat meski digunakan dalam lingkungan lembab. Dengan desain ergonomis dan pegangan yang nyaman, gunting ini memberikan kontrol yang presisi serta memudahkan pemotongan berbagai bahan seperti kertas, kain, plastik, hingga bahan ringan lainnya.",
+stock: 1999
+},
+{
+id: 4,
+name: "Penghapus Staedtler",
+originalPrice: 4500,
+price: 3000,
+image: "./image/produk/produk4.png",
+description: "Penghapus Staedtler dirancang khusus untuk menghapus dengan lembut namun efektif, tanpa merusak atau meninggalkan bekas pada permukaan kertas. Terbuat dari bahan berkualitas tinggi, penghapus ini tidak mudah hancur saat digunakan, sehingga lebih tahan lama. Cocok digunakan untuk menghapus tulisan pensil pada berbagai jenis kertas, mulai dari buku catatan hingga kertas gambar.",
+stock: 8999
+},
+{
+id: 5,
+name: "Penggaris 30cm Butterfly",
+originalPrice: 9000,
+price: 6000,
+image: "./image/produk/produk5.png",
+description: "Penggaris Butterfly 30 cm adalah alat ukur praktis yang terbuat dari bahan plastik berkualitas, ringan, dan tahan lama. Dengan panjang 30 cm, penggaris ini ideal untuk berbagai keperluan, mulai dari keperluan sekolah, kantor, hingga kegiatan desain. Penggaris ini memiliki skala yang jelas dan mudah dibaca, serta tepian yang halus untuk pengukuran yang presisi.",
+stock: 12999
+},
+{
+id: 6,
+name: "Map Kertas Warna Warni",
+price: 5000,
+image: "./image/produk/produk6.png",
+description: "Map kertas warna-warni ini cocok untuk membantu Anda mengorganisir dokumen secara rapi dan menarik. Dibuat dari bahan kertas berkualitas tinggi, map ini memiliki tekstur halus dan tahan lama. Dengan pilihan warna yang cerah seperti merah, kuning, hijau, dan biru, map ini memudahkan Anda untuk membedakan berkas sesuai kategori atau keperluan. Ukurannya pas untuk menyimpan dokumen A4 tanpa terlipat, membuatnya praktis untuk keperluan kantor, sekolah, atau organisasi lainnya.",
+stock: 20999
+},
+{
+id: 7,
+name: "Meja Lipat Lesehan",
+price: 55000,
+image: "./image/produk/produk7.png",
+description: "Meja lipat lesehan ini dirancang khusus untuk kenyamanan bekerja atau belajar dalam posisi duduk di lantai. Dengan desain yang ringkas dan mudah dilipat, meja ini sangat praktis untuk disimpan dan dibawa kemana saja. Terbuat dari bahan berkualitas tinggi, meja ini kokoh, ringan, dan tahan lama. Permukaannya luas, cukup untuk menempatkan laptop, buku, atau alat tulis. Cocok digunakan di rumah, kantor, atau ruang belajar untuk gaya bekerja yang lebih santai namun tetap produktif.",
+stock: 1999
+},
+{
+id: 8,
+name: "Kotak Pensil",
+price: 21000,
+image: "./image/produk/produk8.png",
+description: "Kotak pensil imut ini siap menemani hari-hari belajar Anda dengan gaya yang menggemaskan! Terbuat dari bahan berkualitas yang tahan lama, kotak pensil ini memiliki desain yang lucu dan warna-warna ceria yang menarik. Ukurannya pas untuk menyimpan berbagai alat tulis seperti pensil, pulpen, penghapus, dan lainnya. Bentuknya yang ringkas membuatnya mudah dibawa dalam tas tanpa memakan banyak tempat. Cocok untuk anak-anak maupun remaja yang ingin menambahkan sentuhan imut pada perlengkapan sekolah atau kantornya!",
+stock: 999
+},
+{
+id: 9,
+name: "Stabilo Warna Pastel",
+price: 12000,
+image: "./image/produk/produk9.png",
+description: "Stabilo warna pastel ini adalah pilihan sempurna untuk menambahkan sentuhan lembut dan elegan pada catatan Anda. Dengan warna-warna pastel yang lembut seperti pink, ungu, mint, dan peach, stabilo ini memberikan hasil yang indah dan tidak mencolok. Tinta berkualitasnya tahan lama dan cepat kering, sehingga tidak mudah luntur atau tembus ke halaman berikutnya. Desain ergonomisnya membuat stabilo ini nyaman digenggam dan digunakan dalam waktu lama. Ideal untuk memperindah catatan, jurnal, maupun pekerjaan kreatif lainnya, stabilo ini cocok bagi pelajar, pekerja, atau siapa saja yang menginginkan warna pastel yang cantik di setiap halaman.",
+stock: 1999
+},
+{
+id: 10,
+name: "Kalkulator Karakter Lucu",
+price: 24000,
+image: "./image/produk/produk10.png",
+description: "Kalkulator karakter lucu ini siap menemani aktivitas hitung-menghitung Anda dengan sentuhan gaya yang menggemaskan! Didesain dengan bentuk karakter kartun yang imut dan warna-warna ceria, kalkulator ini akan membuat perhitungan jadi lebih menyenangkan. Dengan ukuran yang pas di tangan, kalkulator ini mudah dibawa ke mana saja. Tombol-tombolnya empuk dan responsif, cocok untuk digunakan di sekolah, kantor, atau rumah. Selain fungsional, kalkulator ini juga bisa menjadi aksesori meja yang menarik. Sempurna untuk siapa saja yang ingin menambahkan sedikit keceriaan pada peralatan kerja atau belajar!",
+stock: 999
+},
+{
+id: 11,
+name: "Peruncing Putar",
+price: 41000,
+image: "./image/produk/produk11.png",
+description: "Peruncing putar ini adalah solusi praktis untuk meruncingkan pensil Anda dengan mudah dan cepat. Dilengkapi dengan mekanisme putar yang efisien, peruncing ini membuat pensil runcing sempurna hanya dengan beberapa putaran, tanpa perlu tenaga ekstra. Terbuat dari bahan berkualitas, pisau tajamnya aman dan tahan lama. Desainnya yang ringkas dan ergonomis membuatnya nyaman dipegang serta mudah dibawa ke mana saja. Cocok untuk pelajar, pekerja kreatif, atau siapa saja yang membutuhkan alat runcing praktis di rumah, sekolah, atau kantor. Tersedia dalam berbagai warna menarik untuk menambah semangat belajar!",
+stock: 799
+},
+{
+id: 12,
+name: "Penggaris One Set",
+price: 7500,
+image: "./image/produk/produk12.png",
+description: "Penggaris one set ini adalah pilihan ideal untuk kebutuhan ukur dan menggambar dengan presisi. Set lengkap ini biasanya terdiri dari penggaris lurus, penggaris segitiga 45° dan 30°/60°, serta busur derajat, sehingga memudahkan Anda dalam berbagai aktivitas pengukuran atau menggambar sudut dengan akurat. Terbuat dari bahan berkualitas tinggi yang tahan lama, penggaris ini memiliki skala yang jelas dan mudah dibaca. Ringkas dan praktis, penggaris ini mudah dibawa dan cocok digunakan di sekolah, kantor, atau untuk kegiatan hobi. Tersedia dalam beberapa pilihan warna transparan yang modern dan menarik!",
+stock: 1199
+},
+{
+id: 13,
+name: "Tip-x Roll 6M",
+price: 5500,
+image: "./image/produk/produk13.png",
+description: "Tip X Roll ini adalah solusi praktis untuk mengoreksi kesalahan tulisan dengan cepat dan rapi. Dengan desain berbentuk roll yang mudah digunakan, alat ini memungkinkan Anda menutupi kesalahan tanpa perlu menunggu tinta kering seperti tipe cair biasa. Pita koreksinya halus dan kuat, serta menempel dengan baik pada kertas, sehingga bisa langsung ditimpa tulisan baru tanpa repot. Ukurannya yang ringkas membuat Tip X Roll ini mudah dibawa dan disimpan di kotak pensil atau tas. Cocok untuk pelajar, mahasiswa, maupun pekerja yang membutuhkan koreksi cepat dan efisien di mana saja!",
+stock: 250
+},
+{
+id: 14,
+name: "Cover Binder Pastel",
+price: 23000,
+image: "./image/produk/produk14.png",
+description: "Cover binder warna macaron ini hadir dengan nuansa warna pastel yang manis dan lembut, seperti warna-warna macaron yang menggemaskan! Terbuat dari bahan berkualitas tinggi yang kokoh dan tahan lama, cover binder ini tidak hanya melindungi kertas dan dokumen Anda, tetapi juga membuat binder terlihat lebih menarik dan stylish. Desainnya dilengkapi dengan ring yang kuat untuk menahan lembaran dengan aman dan mudah diisi ulang. Ukurannya pas untuk kertas A5 atau A6, sehingga praktis dibawa ke sekolah, kantor, atau digunakan sebagai jurnal pribadi. Pilihan sempurna untuk Anda yang ingin menyimpan catatan dengan rapi dan penuh gaya!",
+stock: 85
+},
+{
+id: 15,
+name: "Jam Beaker Quartz",
+price: 78000,
+image: "./image/produk/produk15.png",
+description: "Jam Beaker Quartz ini adalah perpaduan antara gaya minimalis dan fungsi yang akurat. Dilengkapi dengan teknologi quartz yang andal, jam ini memberikan waktu yang presisi dan stabil. Desain beakernya yang unik menyerupai tabung laboratorium, memberikan sentuhan estetik dan modern yang cocok untuk meja belajar, kantor, atau dekorasi ruangan. Dibuat dari bahan berkualitas dengan tampilan angka yang jelas, jam ini mudah dibaca dan tahan lama. Ideal untuk mereka yang menginginkan jam meja dengan desain yang sederhana namun elegan, sekaligus menjadi hiasan unik yang menarik perhatian.",
+stock: 130
+},
+{
+id: 16,
+name: "Sempoa",
+price: 35000,
+image: "./image/produk/produk16.png",
+description: "Sempoa adalah alat hitung tradisional yang digunakan untuk membantu perhitungan matematika dengan cara yang sederhana dan efisien. Terbuat dari kayu berkualitas dengan manik-manik kecil yang bisa digeser, sempoa ini memungkinkan pengguna untuk menghitung dengan cepat dan mudah. Cocok digunakan oleh anak-anak untuk belajar matematika dasar, seperti penjumlahan, pengurangan, perkalian, dan pembagian. Dengan desain yang praktis dan mudah digunakan, sempoa juga membantu melatih keterampilan motorik halus serta meningkatkan konsentrasi dan pemahaman angka. Ideal untuk pelajar, guru, dan siapa saja yang ingin merasakan cara tradisional dalam berhitung.",
+stock: 100
+},
+{
+id: 17,
+name: "Spidol Snowman Boardmarker",
+price: 6000,
+image: "./image/produk/produk17.png",
+description: "Snowman Boardmarker adalah spidol papan tulis berkualitas tinggi yang dirancang untuk memberikan hasil tulisan yang tajam dan jelas. Dengan tinta yang mudah dihapus dan tahan lama, boardmarker ini cocok digunakan untuk menulis di papan tulis putih, baik di ruang kelas, kantor, atau ruang rapat. Dilengkapi dengan ujung yang halus, boardmarker ini memungkinkan Anda untuk menulis atau menggambar dengan presisi. Tersedia dalam berbagai pilihan warna yang cerah dan mudah terlihat, menjadikannya alat tulis yang praktis dan efisien untuk berbagai kebutuhan presentasi, pembelajaran, atau perencanaan.",
+stock: 95
+},
+{
+id: 18,
+name: "Notebook Dont Bother Me",
+price: 15000,
+image: "./image/produk/produk18.png",
+description: "Notebook Don't Bother Me ini dirancang untuk Anda yang ingin memiliki ruang pribadi untuk menulis atau mencatat tanpa gangguan. Dengan desain sampul yang unik dan berani, notebook ini menampilkan pesan tegas yang mengingatkan orang untuk tidak mengganggu saat Anda sedang fokus. Terbuat dari bahan berkualitas, dengan kertas halus yang nyaman digunakan untuk menulis, baik dengan pulpen, pensil, atau spidol. Ideal untuk digunakan di sekolah, kantor, atau sebagai jurnal pribadi, notebook ini akan menjaga catatan Anda tetap teratur sambil memberikan sentuhan gaya yang menyenangkan. Perfect for those who need their personal space!",
+stock: 140
+},
+{
+id: 19,
+name: "Buku Gambar sidu A3",
+price: 6000,
+image: "./image/produk/produk19.png",
+description: "Buku gambar Sidu A3 ini adalah pilihan ideal bagi Anda yang suka menggambar atau melukis dengan ukuran besar. Dengan kertas bertekstur halus dan tebal, buku gambar ini dapat menampung berbagai media gambar, seperti pensil, spidol, cat air, atau bahkan cat minyak. Ukuran A3 yang luas memberikan ruang lebih untuk berkreasi dengan bebas. Buku ini cocok untuk pelajar, seniman, maupun hobiis yang membutuhkan media gambar berkualitas. Desain hardcover-nya membuat buku ini tetap terjaga dengan baik, sehingga Anda dapat menyimpan hasil karya dengan aman. Ideal untuk membuat sketsa, ilustrasi, atau karya seni lainnya!",
+stock: 180
+},
+{
+id: 20,
+name: "Poster Edukasi",
+price: 8000,
+image: "./image/produk/produk20.png",
+description: "Poster edukasi anak ini dirancang khusus untuk membantu memperkenalkan konsep-konsep dasar dengan cara yang menyenangkan dan mudah dipahami. Dilengkapi dengan gambar yang colorful dan menarik, poster ini berisi informasi penting seperti alfabet, angka, bentuk, warna, serta konsep-konsep pendidikan lainnya. Terbuat dari bahan berkualitas tinggi, poster ini tahan lama dan mudah dibersihkan. Cocok digunakan di rumah, sekolah, atau taman kanak-kanak untuk membantu anak-anak belajar dengan cara visual yang interaktif. Dengan desain yang ceria dan edukatif, poster ini dapat mendukung perkembangan kognitif anak serta menumbuhkan rasa ingin tahu mereka!",
+stock: 120
+},
+{
+id: 21,
+name: "Puzzle Gambar Anak",
+price: 9500,
+image: "./image/produk/produk21.png",
+description: "Puzzle gambar anak ini menawarkan keseruan belajar sambil bermain. Dengan potongan-potongan yang pas dan mudah dipasang, puzzle ini cocok untuk anak-anak yang ingin mengasah keterampilan motorik halus dan kemampuan pemecahan masalah. Setiap puzzle dilengkapi dengan gambar ceria dan menarik, seperti karakter kartun, hewan, atau pemandangan alam, yang akan membuat anak-anak semakin antusias untuk menyelesaikannya. Terbuat dari bahan karton berkualitas tinggi, puzzle ini tahan lama dan aman digunakan. Cocok untuk anak-anak usia dini yang ingin belajar sambil berkreasi, puzzle ini juga dapat meningkatkan konsentrasi dan koordinasi mata-tangan mereka.",
+stock: 150
+},
+
+{
+id: 22,
+name: "Suling Yamaha YRS-23",
+price: 35000,
+image: "./image/produk/produk22.png",
+description: "Recorder / suling Yamaha ini adalah pilihan tepat bagi pemula maupun musisi yang ingin belajar memainkan alat musik tiup dengan mudah. Dikenal dengan kualitas suara yang jernih dan nada yang stabil, recorder ini terbuat dari bahan plastik berkualitas yang tahan lama dan mudah dimainkan. Desainnya ergonomis dan ringan, cocok untuk anak-anak maupun orang dewasa yang baru mulai belajar musik. Dengan standar tinggi dari Yamaha, suling ini memiliki fitur-fitur yang memudahkan dalam belajar teknik dasar, seperti fingering yang nyaman dan responsif. Ideal untuk sekolah musik, pelajaran seni, atau hobi pribadi, recorder Yamaha ini akan mendukung perjalanan musik Anda dengan sempurna.",
+stock: 200
+},
+
+{
+id: 23,
+name: "Pianika Korg PB-01",
+price: 120000,
+image: "./image/produk/produk23.png",
+description: "Pianika Korg ini dirancang untuk memberikan pengalaman bermain musik yang menyenangkan dan praktis. Dengan suara yang jernih dan tombol yang responsif, pianika ini cocok untuk pemula maupun musisi yang ingin mengembangkan keterampilan musik mereka. Korg dikenal dengan kualitas alat musiknya, dan pianika ini tidak terkecuali, menawarkan performa stabil serta desain ergonomis yang nyaman digunakan. Ukurannya yang kompak memungkinkan Anda untuk membawanya kemana saja, ideal untuk latihan di rumah atau dibawa ke sekolah. Pianika Korg ini dilengkapi dengan 32 tombol, sehingga memberi fleksibilitas lebih dalam memainkan berbagai lagu. Cocok untuk anak-anak, pelajar musik, atau siapa saja yang ingin memperkenalkan diri pada dunia musik tiup dengan kualitas yang terpercaya.",
+stock: 175
+},
+
+{
+id: 24,
+name: "Gitar Klasik Yamaha C310",
+price: 1120000,
+image: "./image/produk/produk24.png",
+description: "Gitar akustik Yamaha C310 adalah pilihan ideal bagi pemula maupun pemain gitar tingkat menengah yang mencari kualitas suara yang jernih dan nyaman dipakai. Dikenal dengan konstruksi yang solid dan suara yang kaya, gitar ini terbuat dari bahan berkualitas tinggi, dengan top kayu solid spruce yang memberikan resonansi yang baik. Desainnya yang elegan dan ergonomis memastikan kenyamanan saat dimainkan, baik dalam posisi duduk maupun berdiri. Yamaha C310 memiliki fretboard yang responsif dan mudah dimainkan, cocok untuk latihan di rumah, sekolah musik, atau pertunjukan kecil. Dengan harga yang terjangkau namun kualitas yang tak diragukan, Yamaha C310 adalah pilihan yang tepat untuk mulai mengeksplorasi dunia musik gitar akustik.",
+stock: 80
+},
+
+{
+id: 25,
+name: "Pulpen Kantor KC-P1",
+price: 8000,
+image: "./image/produk/produk25.png",
+description: "Pulpen kantor KC-P1 adalah pilihan sempurna untuk kebutuhan menulis sehari-hari di kantor atau di rumah. Didesain dengan gagang yang ergonomis dan nyaman digenggam, pulpen ini memberikan pengalaman menulis yang halus dan lancar. Dengan tinta yang cepat kering dan tidak mudah luntur, pulpen KC-P1 cocok untuk menulis catatan, dokumen, atau surat penting. Dilengkapi dengan ujung yang presisi, pulpen ini menghasilkan garis tulisan yang rapi dan tajam. Tersedia dalam berbagai pilihan warna tinta, pulpen ini sangat praktis dan efektif untuk penggunaan jangka panjang. Ideal untuk profesional yang membutuhkan alat tulis yang andal dan efisien di tempat kerja.",
+stock: 120
+},
+
+{
+id: 26,
+name: "HVS A4 1 Rim 70 Gsm",
+price: 45000,
+image: "./image/produk/produk26.png",
+description: "Kertas HVS Sidu 70gsm adalah pilihan tepat untuk kebutuhan cetak dan tulis sehari-hari. Dengan ketebalan 70gsm, kertas ini memberikan keseimbangan yang baik antara ketahanan dan fleksibilitas, menjadikannya ideal untuk penggunaan di kantor, sekolah, atau untuk mencetak dokumen umum. Permukaan kertas yang halus memastikan hasil cetakan tajam dan jernih, baik untuk teks maupun gambar. Kertas ini kompatibel dengan printer inkjet dan laser, serta cocok untuk penggunaan di mesin fotokopi. HVS Sidu 70gsm tersedia dalam berbagai ukuran dan kemasan, menjadikannya pilihan yang ekonomis dan efisien untuk kebutuhan kertas Anda.",
+stock: 90
+},
+
+{
+id: 27,
+name: "Gantungan Kunci Simpul Biru",
+price: 15000,
+image: "./image/produk/produk27.png",
+description: "Gantungan kunci simpul biru ini menawarkan desain unik dan fungsionalitas yang praktis. Dibuat dengan tali yang terjalin rapi membentuk simpul, gantungan kunci ini memberikan tampilan menarik dan berbeda dari gantungan kunci biasa. Warna biru yang cerah memberikan kesan segar dan mudah ditemukan di dalam tas atau dompet. Dilengkapi dengan ring kunci yang kokoh, gantungan ini aman untuk menyimpan kunci rumah, mobil, atau kunci lainnya. Selain sebagai aksesori fungsional, gantungan kunci ini juga bisa menjadi pilihan hadiah yang stylish dan praktis. Ideal untuk mereka yang menginginkan kombinasi antara desain dan kegunaan sehari-hari.",
+stock: 100
+},
+
+{
+id: 28,
+name: "1 Set Alat Lukis Kanvas",
+price: 28000,
+image: "./image/produk/produk28.png",
+description: "Set lengkap ini adalah pilihan sempurna bagi Anda yang ingin memulai hobi melukis dengan cat air. Dalam satu paket, Anda akan mendapatkan kanvas berkualitas tinggi yang ideal untuk cat air, palet untuk mencampur warna, serta serangkaian kuas dengan berbagai ukuran untuk berbagai teknik lukisan. Set ini juga dilengkapi dengan cat air yang vibrant dan mudah dicampur, memberikan hasil lukisan yang cerah dan tahan lama. Baik Anda seorang pemula atau seniman berpengalaman, set ini memberikan semua yang Anda butuhkan untuk menciptakan karya seni yang menakjubkan. Ideal digunakan di rumah, studio seni, atau sebagai hadiah bagi penggemar seni!",
+stock: 250
+},
+
+{
+id: 29,
+name: "Double Folio Kiky 10x10 Sheets",
+price: 32000,
+image: "./image/produk/produk29.png",
+description: "Double Folio Kiky 10x10 Sheets adalah kertas berkualitas tinggi yang ideal untuk berbagai keperluan seni, desain, dan kerajinan tangan. Dengan ukuran 10x10 inci, kertas ini cocok digunakan untuk membuat origami, scrapbook, dan proyek kreatif lainnya. Setiap lembar memiliki tekstur halus dan kuat, memberikan ketahanan dan kemudahan saat diwarnai atau dipotong. Tersedia dalam kemasan yang berisi 10 lembar, kertas ini memberikan fleksibilitas untuk berbagai jenis pekerjaan seni, baik untuk anak-anak maupun orang dewasa. Dengan pilihan warna yang beragam, Double Folio Kiky adalah pilihan sempurna untuk mendukung kreativitas Anda!",
+stock: 70
+},
+
+{
+id: 30,
+name: "Klip Kertas 1 Stoples Warna",
+price: 18000,
+image: "./image/produk/produk30.png",
+description: "Toples klip kertas warna ini adalah alat bantu praktis untuk menyusun dan mengorganisir dokumen dengan cara yang sederhana dan fungsional. Dengan desain tanpa tutup, klip ini mudah digunakan dan cepat dalam menjepit tumpukan kertas. Dilengkapi dengan warna-warna cerah yang menarik, klip kertas ini tidak hanya fungsional, tetapi juga memberi sentuhan warna pada meja kerja Anda. Terbuat dari bahan berkualitas yang tahan lama dan kokoh, klip ini dapat menjepit banyak kertas sekaligus tanpa khawatir rusak. Ideal digunakan di kantor, sekolah, atau rumah untuk menyusun dokumen, laporan, dan tugas dengan rapi dan praktis.",
+stock: 150
+},
+{
+id: 31,
+name: "Kabel Usb Type-C 3M",
+price: 10500,
+image: "./image/produk/produk31.png",
+description: "Kabel USB Type-C 3M ini menawarkan kemudahan dan fleksibilitas ekstra dengan panjang kabel mencapai 3 meter. Cocok untuk pengisian daya dan transfer data, kabel ini mendukung berbagai perangkat modern dengan port Type-C, seperti smartphone, tablet, dan laptop. Desain tahan lama menjadikannya pilihan praktis untuk digunakan di rumah, kantor, atau saat bepergian.",
+stock: 150
+},
+{
+id: 32,
+name: "Earphone Kabel KC-E11",
+price: 45500,
+image: "./image/produk/produk32.png",
+description: "Earphone Kabel KC-E11 hadir dengan kualitas suara jernih dan bass yang kuat, ideal untuk mendengarkan musik dan panggilan telepon sehari-hari. Desain ergonomisnya nyaman dipakai dalam waktu lama, serta memiliki kabel yang tahan lama dan anti kusut. Cocok untuk berbagai perangkat dengan port audio 3.5mm, earphone ini pilihan sempurna untuk pengguna yang mengutamakan kenyamanan dan kualitas suara.",
+stock: 150
+},
+{
+id: 33,
+name: "Lampu Belajar KC-SL01",
+price: 65500,
+image: "./image/produk/produk33.png",
+description: "Lampu Belajar KC-SL01 adalah lampu meja minimalis dengan pencahayaan LED yang terang dan hemat energi. Didesain fleksibel dengan leher yang dapat diatur sesuai kebutuhan, lampu ini memberikan kenyamanan optimal saat membaca atau belajar. Dengan pilihan intensitas cahaya yang bisa disesuaikan, KC-SL01 cocok untuk menemani aktivitas belajar tanpa membuat mata cepat lelah.",
+stock: 150
+},
+{
+id: 34,
+name: "Pensil Warna Faber Castell 24 Colour",
+price: 55500,
+image: "./image/produk/produk34.png",
+description: "KPensil Warna Faber Castell 24 Colour menghadirkan rangkaian warna lengkap untuk memenuhi kebutuhan menggambar dan mewarnai dengan kualitas premium. Set ini terdiri dari 24 warna cerah dan mudah diaplikasikan, dengan ujung pensil yang kuat dan tahan lama. Cocok untuk pelajar, seniman, atau siapa saja yang ingin menambah keceriaan pada setiap karya seni.",
+stock: 150
+},
+{
+id: 36,
+name: "Pensil Warna Faber Castell 36 Colour Black Edition",
+price: 99500,
+image: "./image/produk/produk36.png",
+description: "Pensil Warna Faber Castell 36 Colour Black Edition menawarkan 36 warna intens yang terlihat mencolok di atas kertas putih dan gelap. Pensil ini memiliki desain hitam elegan dengan warna yang lebih kaya dan mudah diaplikasikan. Cocok untuk menciptakan karya seni yang kreatif dan berani, baik untuk pemula maupun seniman berpengalaman.",
+stock: 150
+}
+,
+{
+id: 37,
+name: "Water Colour Faber Castell 24 Colour",
+price: 199000,
+image: "./image/produk/produk37.png",
+description: "Water Colour Faber Castell 24 Colour adalah set cat air dengan 24 pilihan warna cerah dan mudah dicampur, ideal untuk menggambar dan melukis. Set ini dirancang dengan kualitas tinggi untuk memberikan hasil warna yang halus dan tahan lama. Cocok untuk anak-anak, pelajar, dan seniman pemula yang ingin bereksplorasi dengan teknik cat air.",
+stock: 150
+}
+,
+{
+id: 38,
+name: "1 Set Graphite Pensil Proffesional Faber Castell",
+price: 35500,
+image: "./image/produk/produk38.png",
+description: "Ko1 Set Graphite Pensil Profesional Faber Castell adalah koleksi pensil grafit berkualitas tinggi yang dirancang khusus untuk seniman dan profesional. Set ini mencakup berbagai tingkat kekerasan, sehingga ideal untuk menggambar sketsa detail, bayangan halus, hingga efek kontras yang kuat. Pensil ini memberikan hasil yang halus dan konsisten, menjadikannya pilihan tepat untuk menggambar teknis dan ilustrasi seni.",
+stock: 150
+}
+,
+{
+id: 39,
+name: "1 Set Coloring Faber Castell Pencil & Pen",
+price: 259500,
+image: "./image/produk/produk39.png",
+description: "K1 Set Coloring Faber Castell Pencil & Pen adalah paket lengkap untuk kebutuhan mewarnai dan menggambar, terdiri dari pensil warna dan pulpen warna yang berkualitas tinggi. Set ini ideal untuk anak-anak dan dewasa yang gemar berkreasi dengan warna. Pensil warna menghasilkan warna yang cerah dan lembut, sementara pulpen memberi ketajaman dan kehalusan dalam setiap detail. Cocok untuk berbagai proyek seni, mulai dari mewarnai hingga ilustrasi detail.",
+stock: 150
+}
+,
+{
+id: 40,
+name: "24 Colour Krayon Faber Castell",
+price: 75500,
+image: "./image/produk/produk40.png",
+description: "24 Colour Krayon Faber Castell adalah set krayon warna premium dengan 24 pilihan warna cerah dan tahan lama. Dirancang untuk memberikan hasil mewarnai yang halus dan merata, krayon ini cocok untuk anak-anak dan penggemar seni. Dengan warna yang intens dan mudah dipakai, set ini sempurna untuk berbagai proyek kreatif, baik di sekolah maupun di rumah. Faber Castell memastikan kualitas terbaik dalam setiap krayon, memberikan pengalaman mewarnai yang menyenangkan dan memuaskan.",
+stock: 150
+}
+,
+{
+id: 41,
+name: "Gitar Akustik Yamaha APX-600ii",
+price: 3150000,
+image: "./image/produk/produk41.png",
+description: "Yamaha APX-600ii adalah gitar akustik elektrik dengan desain tubuh yang ramping dan ergonomis, membuatnya nyaman dimainkan. Dikenal dengan suara jernih dan resonansi yang kaya, gitar ini dilengkapi dengan sistem pickup SRT dan preamp, memberikan kualitas suara yang optimal saat dimainkan secara akustik maupun menggunakan amplifier. Cocok untuk pemula hingga musisi profesional, Yamaha APX-600ii menawarkan performa luar biasa dengan harga yang terjangkau. Gitar ini juga memiliki tampilan modern dan elegan, menjadikannya pilihan tepat bagi siapa saja yang mencari gitar berkualitas.",
+stock: 150
+}
+,
+{
+id: 42,
+name: "Bola Basket Molten Uk 7",
+price: 185000,
+image: "./image/produk/produk42.png",
+description: "Bola Basket Molten Ukuran 7 adalah bola basket profesional yang dirancang untuk permainan indoor dan outdoor. Dengan kualitas bahan yang tahan lama, bola ini memiliki grip yang sangat baik dan memungkinkan kontrol bola yang lebih presisi saat bermain. Ukuran 7 adalah ukuran standar untuk pria, memberikan kenyamanan saat memantulkan atau melempar bola. Dikenal karena daya tahannya, Bola Basket Molten ini sering digunakan dalam kompetisi resmi, serta pilihan tepat bagi pemain yang mengutamakan kualitas dan performa saat berlatih atau bertanding.",
+stock: 150
+}
+,
+{
+id: 43,
+name: "Bola Sepak Nike Pitch",
+price: 225000,
+image: "./image/produk/produk43.png",
+description: "Bola Sepak Nike Pitch dirancang untuk memberikan performa optimal di lapangan. Dengan desain yang modern dan bahan berkualitas tinggi, bola ini menawarkan daya tahan dan kontrol yang sangat baik saat digunakan untuk permainan sepak bola. Ideal untuk latihan maupun pertandingan, Bola Sepak Nike Pitch memiliki visibilitas tinggi dengan kombinasi warna yang mencolok, memudahkan pemain untuk melihat bola dalam berbagai kondisi cahaya. Bola ini cocok digunakan di lapangan rumput, memberikan akurasi dan kecepatan yang stabil selama pertandingan.",
+stock: 150
+}
+,
+{
+id: 44,
+name: "Lego City 60366",
+price: 335000,
+image: "./image/produk/produk44.png",
+description: "Lego City 60366 adalah set konstruksi seru yang menghadirkan pengalaman membangun kota modern. Dengan berbagai elemen bangunan dan kendaraan, set ini memungkinkan Anda untuk menciptakan berbagai skenario di kota, seperti kegiatan polisi, kebakaran, atau pembangunan. Set ini dirancang untuk anak-anak dan kolektor Lego yang ingin menambah koleksi mereka dengan tema kota yang menarik. Lego City 60366 dilengkapi dengan figur mini dan berbagai aksesoris yang memberikan imajinasi tak terbatas dalam menciptakan dunia Lego yang penuh aksi dan petualangan.",
+stock: 150
+}
+,
+{
+id: 45,
+name: "Lego City 60271",
+price: 405000,
+image: "./image/produk/produk45.png",
+description: "Lego City 60271 adalah set konstruksi yang menghadirkan petualangan seru di dunia kota dengan tema ''Fire Rescue'' Dalam set ini, Anda akan menemukan mobil pemadam kebakaran lengkap dengan figur pemadam kebakaran dan perlengkapan untuk menyelamatkan situasi darurat. Selain itu, ada juga kendaraan darurat seperti truk pemadam kebakaran dan berbagai elemen bangunan yang memungkinkan Anda untuk menciptakan skenario penyelamatan yang mendebarkan. Lego City 60271 cocok untuk anak-anak yang suka berimajinasi dan menyukai tantangan membangun serta berperan sebagai pahlawan di kota Lego.",
+stock: 150
+}
+,
+{
+id: 46,
+name: "Nintendo Switch Oled 1TB",
+price: 4550000,
+image: "./image/produk/produk46.png",
+description: "KNintendo Switch OLED 1TB adalah konsol game portabel terbaru dengan layar OLED 7 inci yang menampilkan warna yang lebih cerah dan kontras yang lebih tinggi. Dilengkapi dengan penyimpanan internal 1TB, memberikan ruang yang lebih besar untuk menyimpan game dan data. Konsol ini mendukung mode handheld, tabletop, dan TV, memberikan fleksibilitas maksimal untuk bermain di mana saja. Desain ergonomis dan kualitas suara yang lebih baik, serta dukungan untuk aksesori dan game Switch lainnya, menjadikannya pilihan ideal bagi para gamer yang menginginkan pengalaman bermain yang lebih imersif dan praktis.",
+stock: 150
+}
+,
+{
+id: 47,
+name: "Xbox Series-X 1TB",
+price: 8500000,
+image: "./image/produk/produk47.png",
+description: "Xbox Series X 1TB adalah konsol game generasi terbaru dari Microsoft yang menawarkan performa luar biasa dengan prosesor AMD Zen 2 dan RDNA 2, memberikan grafis 4K dengan kecepatan hingga 120 fps. Dilengkapi dengan penyimpanan internal 1TB NVMe SSD, memberikan waktu pemuatan yang lebih cepat dan pengalaman gaming yang lebih lancar. Dengan dukungan untuk kompatibilitas game Xbox One, Xbox 360, dan Xbox klasik, serta berbagai game baru di Xbox Game Pass, Series X memberikan pilihan bermain yang sangat luas. Selain itu, konsol ini juga mendukung teknologi ray tracing dan Dolby Vision untuk pengalaman visual yang lebih realistis.",
+stock: 150
+}
+,
+{
+id: 48,
+name: "Tanaman Meja Hias Mini Dekorasi",
+price: 15500,
+image: "./image/produk/produk48.png",
+description: "Tanaman Meja Hias Mini Dekorasi adalah pilihan sempurna untuk menambahkan sentuhan hijau dan segar di ruang kerja atau meja rumah Anda. Tanaman kecil ini hadir dengan pot yang stylish dan cocok untuk berbagai gaya dekorasi interior. Mudah dirawat, tanaman ini memberikan kesan natural dan menenangkan tanpa memerlukan perhatian khusus. Cocok untuk ditempatkan di meja, rak, atau sudut ruang, tanaman meja hias mini ini akan memperindah suasana di ruangan Anda. Ideal untuk mereka yang ingin menambahkan elemen alam dalam dekorasi tanpa harus repot merawat tanaman besar.",
+stock: 150
+}
+,
+{
+id: 49,
+name: "Lukisan Modern Dekorasi Dinding Sepasang",
+price: 105000,
+image: "./image/produk/produk49.png",
+description: "Lukisan Modern Dekorasi Dinding Sepasang adalah pilihan sempurna untuk mempercantik dinding rumah atau kantor Anda. Dengan desain yang kontemporer dan elegan, lukisan ini menciptakan kesan yang dinamis dan penuh karakter. Set dua lukisan ini saling melengkapi, memberikan keseimbangan visual yang menarik. Terbuat dari bahan berkualitas, lukisan ini cocok untuk memperkaya ruang tamu, ruang makan, atau ruang kerja Anda, memberikan nuansa modern yang fresh dan menambah keindahan ruangan. Cocok bagi Anda yang menginginkan sentuhan seni yang simpel namun mewah.",
+stock: 150
+}
+,
+{
+id: 50,
+name: "Lukisan Artistic Dekorasi Dinding Satu Set",
+price: 155000,
+image: "./image/produk/produk50.png",
+description: "Lukisan Artistic Dekorasi Dinding Satu Set adalah pilihan ideal untuk menambah sentuhan seni dalam ruang Anda. Set lukisan ini menghadirkan desain artistik yang unik dan menarik, memberikan kesan estetika yang kuat pada dinding rumah atau kantor. Dengan gaya yang modern dan penuh warna, lukisan ini cocok untuk berbagai jenis ruangan, seperti ruang tamu, ruang makan, atau ruang kerja. Terbuat dari bahan berkualitas, lukisan ini mampu memperkaya suasana ruangan dan menciptakan atmosfer yang lebih hidup dan penuh kreativitas. Ideal bagi Anda yang ingin menambah dimensi seni yang elegan dan berkelas pada interior.",
+stock: 150
+}
+
+,
+{
+id: 51,
+name: "Sticky Notes 100 Lembar",
+price: 10500,
+image: "./image/produk/produk51.png",
+description: "Sticky Notes 100 Lembar adalah pilihan praktis untuk mencatat informasi penting, mengorganisir tugas, atau memberi pengingat. Dengan 100 lembar, sticky notes ini menawarkan banyak ruang untuk menulis dan mudah ditempel di berbagai permukaan tanpa meninggalkan bekas. Desainnya yang compact dan warna yang cerah membuatnya mudah untuk ditemukan, cocok digunakan di kantor, sekolah, atau rumah. Dilengkapi dengan lem perekat yang kuat, sticky notes ini dapat dipindahkan dengan mudah tanpa merusak permukaan tempat menempelnya. Ideal untuk kebutuhan sehari-hari yang membutuhkan catatan singkat dan efisien.",
+stock: 150
+}
+,
+{
+id: 52,
+name: "Sketchbook A4 Artemedia",
+price: 10500,
+image: "./image/produk/produk52.png",
+description: "Sketchbook A4 Artemedia adalah buku gambar ukuran A4 yang ideal untuk berbagai kebutuhan seni, mulai dari sketsa hingga ilustrasi. Dengan kualitas kertas yang halus dan kuat, sketchbook ini cocok untuk menggunakan berbagai media, seperti pensil, tinta, dan cat air. Desainnya yang praktis memungkinkan Anda menggambar dengan leluasa, sementara ukuran A4 memberikan ruang yang cukup untuk berkreasi. Sketchbook ini sangat cocok bagi seniman, desainer, atau siapa saja yang ingin menyalurkan kreativitasnya di atas kertas. Dengan sampul yang kokoh dan elegan, sketchbook ini juga sangat nyaman untuk dibawa ke mana-mana.",
+stock: 150
+}
+,
+{
+id: 53,
+name: "Buku Tulis Bigboss Campus 58 Lembar",
+price: 6500,
+image: "./image/produk/produk53.png",
+description: "Buku Tulis Bigboss Campus 58 Lembar adalah buku tulis praktis yang memiliki 58 lembar berkualitas tinggi. Dirancang dengan ukuran yang pas untuk berbagai kegiatan menulis, buku ini cocok untuk digunakan di sekolah, kantor, atau untuk keperluan pribadi. Kertasnya halus dan nyaman digunakan dengan berbagai jenis pena, pensil, atau pulpen. Dengan sampul yang kuat dan desain yang sederhana, Buku Tulis Bigboss Campus memberikan kenyamanan dan ketahanan yang baik. Ideal untuk mencatat, atau menulis catatan sehari-hari.",
+stock: 150
+}
+,
+{
+id: 54,
+name: "Kertas Water Colour A5 25 Lembar Artemedia",
+price: 20500,
+image: "./image/produk/produk54.png",
+description: "KosongKertas Water Colour A5 25 Lembar Artemedia adalah kertas berkualitas tinggi yang dirancang khusus untuk melukis dengan cat air. Ukuran A5 membuatnya ideal untuk proyek seni kecil hingga menengah. Dengan ketebalan yang cukup dan tekstur yang tepat, kertas ini mampu menyerap cat air dengan baik, menghasilkan warna yang tajam dan terang. Setiap pack berisi 25 lembar kertas yang tahan lama, cocok untuk berbagai teknik lukisan dan memberikan hasil akhir yang memuaskan. Ideal untuk seniman amatir maupun profesional yang ingin menciptakan karya seni dengan cat air.",
+stock: 150
+}
+,
+{
+id: 55,
+name: "Water Colour Pad A4 Artemedia",
+price: 10500,
+image: "./image/produk/produk55.png",
+description: "Water Colour Pad A4 Artemedia adalah buku cat air berkualitas tinggi dengan ukuran A4, sempurna untuk proyek seni lukis cat air yang lebih besar. Dilengkapi dengan kertas yang tebal dan memiliki tekstur halus, pad ini dirancang untuk menyerap cat air dengan baik, menjaga warna tetap tajam dan terang. Setiap halaman memberikan hasil lukisan yang halus dan tidak mudah rusak meskipun menggunakan banyak lapisan cat. Ideal untuk seniman profesional maupun pemula yang ingin mengeksplorasi seni cat air.",
+stock: 150
+}
+,
+{
+id: 56,
+name: "Akrilik Paint 12 Warna",
+price: 199000,
+image: "./image/produk/produk56.png",
+description: "Akrilik Paint 12 Warna adalah set cat akrilik dengan 12 warna yang kaya dan cerah, ideal untuk berbagai proyek seni dan kerajinan. Cat ini memiliki formula cepat kering dan mudah digunakan pada berbagai permukaan, seperti kanvas, kayu, dan keramik. Setiap warna dalam paket ini menawarkan konsistensi yang baik, menghasilkan hasil lukisan yang tahan lama dan penuh warna. Cocok untuk seniman pemula maupun berpengalaman yang ingin mengeksplorasi berbagai teknik melukis menggunakan cat akrilik.",
+stock: 150
+}
+,
+{
+id: 57,
+name: "Pena Kenko 100TJ 12 Pcs",
+price: 25500,
+image: "./image/produk/produk57.png",
+description: "Pena Kenko 100TJ 12 Pcs adalah set pena berkualitas tinggi yang terdiri dari 12 buah pena dengan desain ergonomis dan tinta yang lancar. Pena ini memberikan kenyamanan saat digunakan untuk menulis atau menggambar, cocok untuk keperluan sehari-hari, sekolah, atau kantor. Dengan ujung yang halus, pena Kenko 100TJ menghasilkan tulisan yang rapi dan jelas. Set ini hadir dengan berbagai pilihan warna tinta, memberikan variasi untuk kebutuhan tulisan yang lebih menarik. Ideal untuk penggunaan jangka panjang dengan harga terjangkau.",
+stock: 150
+}
+,
+{
+id: 58,
+name: "Pena Kenko 0,5",
+price: 3500,
+image: "./image/produk/produk58.png",
+description: "Pena Kenko 0,5 adalah pena dengan ujung 0,5 mm yang ideal untuk menulis dengan detail dan presisi. Desainnya yang ergonomis dan tinta yang mengalir lancar memberikan kenyamanan saat digunakan untuk menulis atau menggambar. Pena ini cocok untuk kebutuhan sehari-hari, baik di sekolah, kantor, maupun untuk penggunaan pribadi. Dengan kualitas yang terjamin, Pena Kenko 0,5 menawarkan pengalaman menulis yang halus dan hasil tulisan yang jelas serta rapi.",
+stock: 150
+}
+,
+{
+id: 59,
+name: "Pensil 2B Faber Castell 12 Pcs",
+price: 25500,
+image: "./image/produk/produk59.png",
+description: "Pensil 2B Faber Castell 12 Pcs adalah set pensil berkualitas tinggi yang ideal untuk menggambar dan menulis. Dengan tingkat kekerasan 2B, pensil ini menghasilkan garis yang lembut dan mudah dihapus, cocok untuk berbagai kebutuhan seperti sketsa, menggambar, atau mencatat. Set ini terdiri dari 12 pensil dalam satu paket, memberikan nilai lebih untuk penggunaan jangka panjang. Faber Castell, sebagai merek ternama, menjamin kualitas dan kenyamanan dalam setiap goresan, menjadikannya pilihan tepat bagi pelajar, seniman, dan profesional.",
+stock: 150
+}
+,
+{
+id: 60,
+name: "Buku Tulis 58 Lembar",
+price: 4500,
+image: "./image/produk/produk60.png",
+description: "Buku tulis praktis yang ideal untuk kebutuhan sehari-hari di sekolah atau kantor. Bergambar lucu karakter We Bare Bears. Dengan 58 lembar kertas berkualitas, buku ini memberikan ruang yang cukup untuk menulis catatan, tugas, atau ide-ide penting. Desain yang sederhana dan praktis membuatnya mudah digunakan dan dibawa ke mana saja. Cocok untuk pelajar, mahasiswa, maupun profesional yang membutuhkan buku tulis yang dapat diandalkan.",
+stock: 150
+}
+,
+{
+id: 61,
+name: "Sketchbook A4 Kenko",
+price: 10500,
+image: "./image/produk/produk61.png",
+description: "Sketchbook A4 Kenko adalah buku gambar dengan ukuran A4 yang ideal untuk berbagai teknik menggambar dan melukis. Dilengkapi dengan kertas berkualitas tinggi yang cocok untuk pensil, tinta, pensil warna, atau cat air. Sketchbook ini memiliki desain yang praktis dan ukuran yang pas untuk berkreasi, baik untuk pemula maupun seniman profesional. Dengan halaman yang cukup tebal, sketchbook ini memungkinkan Anda untuk mengekspresikan kreativitas tanpa khawatir tinta atau warna meresap. Cocok digunakan di rumah, studio, atau saat bepergian.",
+stock: 150
+}
+,
+{
+id: 62,
+name: "ToteBag Kertas Coret",
+price: 2500,
+image: "./image/produk/produk62.png",
+description: "Totebag resmi Kertas Coret adalah tas tote praktis dan stylish yang dirancang khusus untuk pembelian online. Dengan desain minimalis dan elegan, totebag ini terbuat dari bahan berkualitas tinggi, ideal untuk membawa barang-barang sehari-hari Anda. Ditawarkan dengan harga terjangkau hanya 2.500, totebag ini menjadi pilihan sempurna untuk mereka yang mencari barang unik dan berguna. Dapatkan sekarang, hanya melalui pembelian online di Kertas Coret!",
+stock: 150
+}
+
+];
+function formatPrice(price) {
+    const formatted = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR'
+    }).format(price);
+    
+    return formatted.replace(/IDR\s?/, 'Rp');
+}
+
+function renderProducts(containerId, startIndex, endIndex) {
+    const container = document.getElementById(containerId);
+    const productsToRender = products.slice(startIndex, endIndex);
+    container.innerHTML = productsToRender.map((product, index) => `
+        <div class="product-card" style="animation: fadeIn 0.3s ease-out ${index * 0.1}s forwards;">
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">${product.name}</h3>
+                <p class="product-description">${product.description}</p>
+                <div class="product-price">
+                    ${product.originalPrice ? `<span class="original-price" style="text-decoration: line-through;">${formatPrice(product.originalPrice)}</span>` : ''}
+                    <span class="final-price">${formatPrice(product.price)}</span>
+                </div>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart" onclick="addToCart(${product.id}, event)" title="Tambah ke Keranjang">
+                <span class="icon-container">
+                  <i class="fas fa-shopping-cart"></i>
+                  <i class="fas fa-plus" style="font-size: 0.7em;"></i>
+                </span>
+              </button>
+              <button class="desc-btn" onclick="showDescription(${product.id})" title="Lihat Deskripsi">
+                <i class="fas fa-info-circle"></i>
+              </button>
+              <span class="stock-count">Stok: ${product.stock}</span>
+              <button class="wishlist-btn ${wishlistItems.has(product.id) ? 'active' : ''}"
+                onclick="addToWishlist(${product.id}, event)"
+                title="Tambah ke Wishlist">
+                <i class="fas fa-heart"></i>
+              </button>
+            </div>
+        </div>
+    `).join('');
+}
+
+function scrollProductLeft(containerId) {
+const container = document.getElementById(containerId);
+const cardWidth = 320;
+const gap = 16;
+const scrollDistance = cardWidth + gap;
+container.scrollLeft -= scrollDistance;
+}
+
+function scrollProductRight(containerId) {
+const container = document.getElementById(containerId);
+const cardWidth = 320;
+const gap = 16;
+const scrollDistance = cardWidth + gap;
+container.scrollLeft += scrollDistance;
+}
+
+function addToCart(productId, event) {
+let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+const existingItemIndex = cartItems.findIndex(item => item.id === productId);
+
+if (existingItemIndex > -1) {
+cartItems[existingItemIndex].quantity = parseInt(cartItems[existingItemIndex].quantity || 0) + 1;
+} else {
+const product = products.find(p => p.id === productId);
+cartItems.push({
+...product,
+quantity: 1,
+isSelected: false
+});
+}
+
+localStorage.setItem('cartItems', JSON.stringify(cartItems));
+updateCartCount();
+
+const cartButton = event.target.closest('.add-to-cart');
+const notification = document.createElement('div');
+notification.className = 'mini-notification';
+notification.textContent = '+1';
+cartButton.appendChild(notification);
+
+setTimeout(() => {
+notification.style.animation = 'fadeOut 0.3s ease forwards';
+setTimeout(() => notification.remove(), 300);
+}, 1000);
+}
+
+function updateCartCount() {
+const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+const totalItems = cartItems.reduce((sum, item) => sum + (parseInt(item.quantity) || 0), 0);
+document.querySelector('.cart-count').textContent = totalItems;
+}
+
+const wishlistItems = new Set(JSON.parse(localStorage.getItem('wishlistItems') || '[]'));
+
+function addToWishlist(productId, event) {
+const wishlistBtn = event.target.closest('.wishlist-btn');
+
+if (wishlistItems.has(productId)) {
+wishlistItems.delete(productId);
+wishlistBtn.classList.remove('active');
+} else {
+wishlistItems.add(productId);
+wishlistBtn.classList.add('active');
+}
+
+localStorage.setItem('wishlistItems', JSON.stringify([...wishlistItems]));
+updateWishlistCount();
+}
+
+function updateWishlistCount() {
+document.querySelector('.wishlist-count').textContent = wishlistItems.size;
+}
+
+
+
+
+
+
+function searchProducts() {
+    const searchInput = document.getElementById('search-input');
+    const searchTerm = searchInput.value.trim().toLowerCase();
+
+    // Cek apakah input kosong
+    if (searchTerm === '') {
+        alert('Masukkan kata kunci pencarian');
+        return;
+    }
+
+    // Filter produk berdasarkan nama atau deskripsi
+    const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(searchTerm) || 
+        product.description.toLowerCase().includes(searchTerm)
+    );
+
+    // Render hasil pencarian
+    renderSearchResults(filteredProducts, searchTerm);
+}
+
+function renderSearchResults(results, searchTerm) {
+    const mainContent = document.querySelector('main');
+    
+    // Bersihkan konten utama
+    mainContent.innerHTML = `
+ <div class="search-container">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Cari produk..." value="${searchTerm}">
+                <button id="search-button" onclick="searchProducts()">
+                    <i class="fas fa-search"></i>
+                </button>
+            <button id="back-to-home" onclick="backToHome()" style="display: block;">BACK</button>
+            </div>
+        </div>
+    `;
+
+    // Container untuk hasil pencarian
+    const searchResultsContainer = document.createElement('div');
+    searchResultsContainer.className = 'search-results';
+
+    // Cek apakah ada hasil pencarian
+    if (results.length === 0) {
+        searchResultsContainer.innerHTML = `
+            <div style="text-align: center; padding: 2rem;">
+                <i class="fas fa-search" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+                <p style="color: #666;">Tidak ada produk yang sesuai dengan "${searchTerm}"</p>
+                <button onclick="backToHome()" class="reset-btn" style="margin-top: 1rem;">Kembali ke Beranda</button>
+            </div>
+        `;
+    } else {
+        // Buat wrapper untuk produk
+        const productsWrapper = document.createElement('div');
+        productsWrapper.className = 'products-container';
+        
+        const productsContent = document.createElement('div');
+        productsContent.className = 'products-wrapper';
+        productsContent.id = 'search-results';
+
+        // Tambahkan setiap produk ke wrapper
+        results.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.innerHTML = `
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">${product.name}</h3>
+                    <p class="product-description">${product.description}</p>
+                    <div class="product-price">
+                        ${product.originalPrice ? 
+                            `<span class="original-price" style="text-decoration: line-through;">${formatPrice(product.originalPrice)}</span>` : 
+                            ''}
+                        <span class="final-price">${formatPrice(product.price)}</span>
+                    </div>
+                </div>
+                <div class="product-actions">
+                    <button class="add-to-cart" onclick="addToCart(${product.id}, event)" title="Tambah ke Keranjang">
+                        <span class="icon-container">
+                            <i class="fas fa-shopping-cart"></i>
+                            <i class="fas fa-plus" style="font-size: 0.7em;"></i>
+                        </span>
+                    </button>
+                    <button class="desc-btn" onclick="showDescription(${product.id})" title="Lihat Deskripsi">
+                        <i class="fas fa-info-circle"></i>
+                    </button>
+                    <span class="stock-count">Stok: ${product.stock}</span>
+                    <button class="wishlist-btn ${wishlistItems.has(product.id) ? 'active' : ''}"
+                        onclick="addToWishlist(${product.id}, event)"
+                        title="Tambah ke Wishlist">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+            `;
+            productsContent.appendChild(productCard);
+        });
+
+        productsWrapper.appendChild(productsContent);
+        searchResultsContainer.appendChild(productsWrapper);
+    }
+
+    // Tambahkan container hasil pencarian ke konten utama
+    mainContent.appendChild(searchResultsContainer);
+
+    // Tambahkan event listener untuk input pencarian baru
+    const newSearchInput = document.getElementById('search-input');
+    const newSearchButton = document.getElementById('search-button');
+
+    if (newSearchInput) {
+        newSearchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                searchProducts();
+            }
+        });
+    }
+
+    if (newSearchButton) {
+        newSearchButton.addEventListener('click', searchProducts);
+    }
+}
+
+// Event listener untuk pencarian saat halaman dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    
+  
+  
+  const searchButton = document.getElementById('search-button');
+    const searchInput = document.getElementById('search-input');
+
+    if (searchButton) {
+        searchButton.addEventListener('click', searchProducts);
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                searchProducts();
+            }
+        });
+    }
+});
+
+function showBackToHomeButton() {
+document.getElementById('back-to-home').style.display = 'block';
+}
+
+function hideBackToHomeButton() {
+document.getElementById('back-to-home').style.display = 'none';
+}
+
+function backToHome() {
+  window.location.href = 'index.html';
+}
+
+function scrollToHome() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+function resetLocalStorage() {
+localStorage.clear();
+updateCartCount();
+updateWishlistCount();
+location.reload();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    renderProducts('flashsale', 0, 5);  // Render first 5 products as flash sale items
+    renderProducts('bestseller', 5, 10);  // Render next 5 products as best sellers
+    renderProducts('newarrival', 10, 30);  // Render the rest as new arrivals
+    
+    // Render all products
+    const allProductsContainer = document.getElementById('allproducts');
+    allProductsContainer.innerHTML = products.map((product, index) => `
+        <div class="product-card" style="animation: fadeIn 0.3s ease-out ${index * 0.1}s forwards;">
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">${product.name}</h3>
+                <p class="product-description">${product.description}</p>
+                <div class="product-price">
+                    ${product.originalPrice ? `<span class="original-price" style="text-decoration: line-through;">${formatPrice(product.originalPrice)}</span>` : ''}
+                    <span class="final-price">${formatPrice(product.price)}</span>
+                </div>
+            </div>
+            <div class="product-actions">
+                <button class="add-to-cart" onclick="addToCart(${product.id}, event)" title="Tambah ke Keranjang">
+                    <span class="icon-container">
+                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-plus" style="font-size: 0.7em;"></i>
+                    </span>
+                </button>
+                <button class="desc-btn" onclick="showDescription(${product.id})" title="Lihat Deskripsi">
+                    <i class="fas fa-info-circle"></i>
+                </button>
+                <span class="stock-count">Stok: ${product.stock}</span>
+                <button class="wishlist-btn ${wishlistItems.has(product.id) ? 'active' : ''}"
+                    onclick="addToWishlist(${product.id}, event)"
+                    title="Tambah ke Wishlist">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+    `).join('');
+
+    updateCartCount();
+    updateWishlistCount();
+
+    document.getElementById('search-button').addEventListener('click', searchProducts);
+    document.getElementById('search-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            searchProducts();
+        }
+    });
+    document.getElementById('back-to-home').addEventListener('click', backToHome);
+}
+
+);
+
+
+
+
+</script>
+
+
+<script>
+function updateDateTime() {
+const dateTimeDisplay = document.getElementById('dateTimeDisplay');
+const now = new Date();
+
+const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
+const dayName = days[now.getDay()];
+const day = now.getDate();
+const month = months[now.getMonth()];
+const year = now.getFullYear();
+const hours = now.getHours().toString().padStart(2, '0');
+const minutes = now.getMinutes().toString().padStart(2, '0');
+const seconds = now.getSeconds().toString().padStart(2, '0');
+
+dateTimeDisplay.textContent = `${dayName}, ${day} ${month} ${year} - ${hours}:${minutes}:${seconds}`;
+}
+
+
+let slideIndex = 1;
+let slideInterval;
+
+function showSlides(n) {
+    const slides = document.getElementsByClassName("promo");
+    const dots = document.getElementsByClassName("dot");
+    
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+
+    // Sembunyikan semua slide
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        if (dots[i]) dots[i].classList.remove('active');
+    }
+
+    // Tampilkan slide yang aktif
+    slides[slideIndex-1].style.display = "block";
+    if (dots[slideIndex-1]) dots[slideIndex-1].classList.add('active');
+}
+
+function plusSlides(n) {
+    clearInterval(slideInterval);
+    showSlides(slideIndex += n);
+    startAutoSlide();
+}
+
+function currentSlide(n) {
+    clearInterval(slideInterval);
+    showSlides(slideIndex = n);
+    startAutoSlide();
+}
+
+function startAutoSlide() {
+    slideInterval = setInterval(() => {
+        plusSlides(1);
+    }, 5000);
+}
+
+// Inisialisasi slideshow
+document.addEventListener('DOMContentLoaded', function() {
+    const promoContainer = document.querySelector('.promo-container');
+    
+    // Tambahkan dots
+    const dotsContainer = document.createElement('div');
+    dotsContainer.className = 'dots-container';
+    
+    const slides = document.getElementsByClassName("promo");
+    for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.onclick = function() { currentSlide(i + 1); };
+        dotsContainer.appendChild(dot);
+    }
+    
+    promoContainer.appendChild(dotsContainer);
+    
+    // Mulai slideshow
+    showSlides(slideIndex);
+    startAutoSlide();
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ... existing code ...
+
+    // Add smooth scrolling for "About Us" link
+    document.querySelector('a[onclick="scrollToAboutUs(); return false;"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        scrollToAboutUs();
+    });
+
+    // Add event listeners for promo buttons
+    document.querySelector('.prev').addEventListener('click', () => plusSlides(-1));
+    document.querySelector('.next').addEventListener('click', () => plusSlides(1));
+});
+// Update waktu setiap detik
+setInterval(updateDateTime, 1000);
+
+// Panggil fungsi pertama kali untuk inisialisasi
+updateDateTime();
+function showDescription(productId) {
+    const product = products.find(p => p.id === productId);
+    
+    // Contoh data komentar untuk produk 1
+    const comments = productId === 1 ? [
+
+
+    // KOMENTAR 
+
+        {
+            name: "Budiono Siregar",
+            rating: 5,
+            comment: "Pensil yang sangat berkualitas, garis hitamnya tajam dan tidak mudah patah!",
+            date: "12 Januari 2024"
+        },
+        {
+            name: "Fufufafa",
+            rating: 4,
+            comment: "Bagus untuk sketsa, nyaman dipegang.",
+            date: "05 Februari 2024"
+        },
+        {
+            name: "Icikiwir",
+            rating: 5,
+            comment: "Pensil terbaik untuk kebutuhan seni dan menulis.",
+            date: "20 Desember 2023"
+        },
+        {
+            name: "Megawati",
+            rating: 2,
+            comment: "Kurang memuaskan, garis tidak terlalu tajam.",
+            date: "15 November 2023"
+        },
+        {
+            name: "Pak Vincent",
+            rating: 1,
+            comment: "Saya pesan dua datangnya satu.",
+            date: "10 Oktober 2023"
+        }
+    ] : [];
+
+    // Filter komentar dengan rating 3 ke atas
+    const filteredComments = comments.filter(comment => comment.rating >= 3);
+
+    // Hitung rata-rata rating dari komentar yang difilter
+    const averageRating = filteredComments.length > 0 
+        ? (filteredComments.reduce((sum, comment) => sum + comment.rating, 0) / filteredComments.length).toFixed(1)
+        : '0';
+
+    const popupOverlay = document.createElement('div');
+    popupOverlay.className = 'popup-overlay';
+    
+    const popupContent = document.createElement('div');
+    popupContent.className = 'popup-content';
+    
+    // Fungsi untuk membuat bintang rating
+    function generateStars(rating) {
+        return '★'.repeat(Math.floor(rating)) + '☆'.repeat(5 - Math.floor(rating));
+    }
+
+    // Buat HTML untuk komentar
+    const commentsHTML = filteredComments.map(comment => `
+        <div class="comment">
+            <div class="comment-header">
+                <div class="comment-info">
+                    <span class="comment-name">${comment.name}</span>
+                    <span class="comment-date">${comment.date}</span>
+                </div>
+                <span class="comment-rating">${generateStars(comment.rating)}</span>
+            </div>
+            <p class="comment-text">${comment.comment}</p>
+        </div>
+    `).join('');
+
+    // Tambahkan tombol untuk menampilkan semua komentar
+    const allCommentsButton = comments.length !== filteredComments.length 
+        ? `<button id="show-all-comments" onclick="toggleAllComments(this)">Tampilkan semua ulasan (${comments.length})</button>` 
+        : '';
+
+    popupContent.innerHTML = `
+        <span class="close-popup">&times;</span>
+        <div class="product-details">
+            <h2>${product.name}</h2>
+            <h3>${formatPrice(product.price)}</h3>
+            <h4>Stok: ${product.stock}</h4>
+            <p>${product.description}</p>
+            
+            ${filteredComments.length > 0 ? `
+                <div class="reviews-section">
+                    <div class="reviews-header">
+                        <h3>Ulasan Pelanggan</h3>
+                        <div class="overall-rating">
+                            <span class="average-rating">${averageRating}</span>
+                            <span class="rating-stars">${generateStars(averageRating)}</span>
+                            <span class="total-reviews">(${filteredComments.length} ulasan)</span>
+                        </div>
+                    </div>
+                    <div class="comments-container" id="comments-container">
+                        ${commentsHTML}
+                    </div>
+                    ${allCommentsButton}
+                </div>
+            ` : ''}
+        </div>
+    `;
+    
+    popupOverlay.appendChild(popupContent);
+    document.body.appendChild(popupOverlay);
+    
+    document.body.classList.add('popup-active');
+    
+    setTimeout(() => {
+        popupOverlay.classList.add('active');
+    }, 10);
+    
+    const closePopup = popupOverlay.querySelector('.close-popup');
+    closePopup.addEventListener('click', () => {
+        closePopupAndEnableScroll(popupOverlay);
+    });
+    
+    popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+            closePopupAndEnableScroll(popupOverlay);
+        }
+    });
+}
+
+// Fungsi untuk menampilkan/menyembunyikan semua komentar
+function toggleAllComments(button) {
+    const commentsContainer = document.getElementById('comments-container');
+    const product = products.find(p => p.id === 1); // Sesuaikan dengan logika Anda
+    
+    const comments = product.id === 1 ? [
+        // Salin seluruh array komentar dari fungsi showDescription
+        {
+            name: "Budiono Siregar",
+            rating: 5,
+            comment: "Pensil yang sangat berkualitas, garis hitamnya tajam dan tidak mudah patah!",
+            date: "12 Januari 2024"
+        },
+        {
+            name: "Fufufafa",
+            rating: 4,
+            comment: "Bagus untuk sketsa, nyaman dipegang.",
+            date: "05 Februari 2024"
+        },
+        {
+            name: "Icikiwir",
+            rating: 5,
+            comment: "Pensil terbaik untuk kebutuhan seni dan menulis.",
+            date: "20 Desember 2023"
+        },
+        {
+            name: "Megawati",
+            rating: 2,
+            comment: "Kurang memuaskan, garis tidak terlalu tajam.",
+            date: "15 November 2023"
+        },
+        {
+            name: "Pak Vincent",
+            rating: 1,
+            comment: "Saya pesan dua datangnya satu.",
+            date: "10 Oktober 2023"
+        }
+        // ... (sisa komentar)
+    ] : [];
+
+    if (button.textContent.includes('Tampilkan')) {
+        // Tampilkan semua komentar
+        const allCommentsHTML = comments.map(comment => `
+            <div class="comment">
+                <div class="comment-header">
+                    <div class="comment-info">
+                        <span class="comment-name">${comment.name}</span>
+                        <span class="comment-date">${comment.date}</span>
+                    </div>
+                    <span class="comment-rating">${generateStars(comment.rating)}</span>
+                </div>
+                <p class="comment-text">${comment.comment}</p>
+            </div>
+        `).join('');
+
+        commentsContainer.innerHTML = allCommentsHTML;
+        button.textContent = 'Sembunyikan ulasan';
+    } else {
+        // Tampilkan hanya komentar dengan rating 3 ke atas
+        const filteredComments = comments.filter(comment => comment.rating >= 3);
+        const filteredCommentsHTML = filteredComments.map(comment => `
+            <div class="comment">
+                <div class="comment-header">
+                    <div class="comment-info">
+                        <span class="comment-name">${comment.name}</span>
+                        <span class="comment-date">${comment.date}</span>
+                    </div>
+                    <span class="comment-rating">${generateStars(comment.rating)}</span>
+                </div>
+                <p class="comment-text">${comment.comment}</p>
+            </div>
+        `).join('');
+
+        commentsContainer.innerHTML = filteredCommentsHTML;
+        button.textContent = `Tampilkan semua ulasan (${comments.length})`;
+    }
+}
+
+// Fungsi untuk membuat bintang rating (tambahkan di luar fungsi)
+function generateStars(rating) {
+    return '★'.repeat(Math.floor(rating)) + '☆'.repeat(5 - Math.floor(rating));
+}
+
+
+
+
+
+
+
+function closePopupAndEnableScroll(popupOverlay) {
+  popupOverlay.classList.remove('active');
+  setTimeout(() => {
+    document.body.removeChild(popupOverlay);
+    // Re-enable scrolling
+    document.body.classList.remove('popup-active');
+  }, 300);
+}
+
+
+
+function scrollToFlashSale() {
+  const flashSaleSection = document.getElementById('flashsale');
+  if (flashSaleSection) {
+    flashSaleSection.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function scrollToFooter() {
+  const footer = document.querySelector('footer');
+  if (footer) {
+    footer.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+function scrollToAboutUs() {
+    const otherSection = document.querySelector('.other-section');
+    console.log('Other Section:', otherSection);
+    if (otherSection) {
+        console.log('Offset Top:', otherSection.offsetTop);
+        window.scrollTo({
+            top: otherSection.offsetTop - 100,
+            behavior: 'smooth'
+        });
+    } else {
+        console.error('Other Section not found');
+    }
+
+  }
+
+// Add this to your existing DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', function() {
+  // ... (existing code)
+
+  // Add smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+});
+
+function goToHome() {
+  const currentUrl = new URL(window.location.href);
+  if (currentUrl.pathname !== '/') {
+    backToHome();
+  } else {
+    scrollToHome();
+  }
+}
+
+
+
+function updateStock(productId, newStock) {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+        product.stock = parseInt(newStock);
+        
+        // Update tampilan stok di pop-up jika ada
+        const stockDisplay = document.getElementById(`stock-display-${productId}`);
+        if (stockDisplay) {
+            stockDisplay.textContent = `Stok: ${product.stock}`;
+        }
+        
+        // Update tampilan stok di card produk
+        const stockElements = document.querySelectorAll('.stock-count');
+        stockElements.forEach(element => {
+            if (element.closest('.product-card').querySelector('.add-to-cart').getAttribute('onclick').includes(`${productId}`)) {
+                element.textContent = `Stok: ${product.stock}`;
+            }
+        });
+        
+        // Simpan ke localStorage
+        localStorage.setItem('products', JSON.stringify(products));
+        
+        alert('Stok berhasil diperbarui!');
+    }
+}
+
+
+
+// Tambahkan JavaScript ini
+function toggleAdminPanel() {
+    const adminControls = document.querySelector('.admin-controls');
+    if (adminControls.style.display === 'none' || adminControls.style.display === '') {
+        adminControls.style.display = 'block';
+    } else {
+        adminControls.style.display = 'none';
+    }
+}
+
+function goToSalesReport() {
+    window.location.href = 'sales-report.html';
+}
+
+function updateStockFromPanel() {
+    const productId = parseInt(document.getElementById('productId').value);
+    const newStock = parseInt(document.getElementById('newStock').value);
+    
+    if (isNaN(productId) || isNaN(newStock)) {
+        alert('Mohon masukkan ID Produk dan Stok yang valid');
+        return;
+    }
+    
+    const product = products.find(p => p.id === productId);
+    if (!product) {
+        alert('Produk tidak ditemukan');
+        return;
+    }
+    
+    updateStock(productId, newStock);
+    
+    // Reset input fields
+    document.getElementById('productId').value = '';
+    document.getElementById('newStock').value = '';
+}
+
+// Pastikan panel admin dimuat saat halaman dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    // Jika admin panel belum ada di halaman
+    if (!document.querySelector('.admin-panel')) {
+        const adminPanel = document.createElement('div');
+        adminPanel.className = 'admin-panel';
+        adminPanel.innerHTML = `
+            <div class="settings-icon" onclick="toggleAdminPanel()">
+                <i class="fas fa-cog"></i>
+            </div>
+            <div class="admin-controls">
+                <div class="stock-control">
+                    <input type="number" id="productId" placeholder="ID Produk" min="1">
+                    <input type="number" id="newStock" placeholder="Stok Baru" min="0">
+                    <button onclick="updateStockFromPanel()">Update Stok</button>
+                </div>
+                <button onclick="goToSalesReport()" class="sales-report-btn">
+                    <i class="fas fa-chart-line"></i> Laporan Penjualan
+                </button>
+            </div>
+        `;
+        document.body.appendChild(adminPanel);
+    }
+});
+
+
+    function scrollToAboutUs() {
+    const otherSection = document.querySelector('.other-section');
+    if (otherSection) {
+        otherSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+function goToSalesReport() {
+    window.location.href = 'sales-report.html';
+}
+
+</script>
+<div class="admin-panel">
+    <div class="settings-icon" onclick="toggleAdminPanel()">
+        <i class="fas fa-cog"></i>
+    </div>
+    <div class="admin-controls">
+        <div class="stock-control">
+            <input type="number" id="productId" placeholder="ID Produk" min="1">
+            <input type="number" id="newStock" placeholder="Stok Baru" min="0">
+            <button onclick="updateStockFromPanel()">Update Stok</button>
+        </div>
+        <button onclick="goToSalesReport()" class="sales-report-btn">
+            <i class="fas fa-chart-line"></i> Laporan Penjualan
+        </button>
+    </div>
+</div>
+</div>
+</body>
+
+</html>

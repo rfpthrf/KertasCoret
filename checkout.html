@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Kertas Coret</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background: snow;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        header {
+            background: snow;
+            padding: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid lightgrey;
+            margin-bottom: 4rem;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-button {
+            font-family: 'Rubik';
+            letter-spacing: 2px;
+            color: #333;
+        }
+
+        .logo {
+            font-family: 'Rubik';
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.25rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .checkout-container {
+            background: snow;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid lightgrey;
+        }
+
+        .checkout-header {
+            background: snow;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .checkout-header h2 {
+            font-family: 'Rubik';
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            margin: -1rem;
+        }
+
+        .payment-methods h2 {
+            font-family: 'Rubik';
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .checkout-items {
+            background: snow;
+            margin-bottom: 1rem;
+            border: 1px solid lightgrey;
+        }
+
+        .checkout-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            gap: 1rem;
+        }
+
+        .checkout-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkout-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-name {
+            font-family: 'Rubik';
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-price {
+            color: darkcyan;
+            font-weight: 300;
+            font-family: 'Rubik';
+            letter-spacing: 1px;
+        }
+
+        .quantity-value {
+            font-family: 'Rubik';
+            width: 40px;
+            text-align: center;
+        }
+
+        .total-price {
+            font-weight: bold;
+            font-size: 1rem;
+            font-family: 'Rubik';
+            letter-spacing: 1px;
+            color: darkcyan;
+        }
+
+        .payment-methods {
+            background: snow;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid lightgrey;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .payment-method.selected {
+            background: #e0f7fa;
+        }
+
+        .payment-method:hover {
+            background: #f5f5f5;
+        }
+
+        .payment-method:last-child {
+            border-bottom: none;
+        }
+
+        .payment-method img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .payment-method-name {
+            font-family: 'Rubik';
+            font-weight: 400;
+        }
+
+        .payment-method-description {
+            font-family: 'Rubik';
+            font-weight: 300;
+            color: #666;
+        }
+
+        .place-order-button {
+            background: darkcyan;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Rubik';
+            transition: background 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .place-order-button:hover {
+            background: #333;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            font-family: 'Rubik';
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 2rem;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            font-family: 'Rubik';
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .payment-details {
+            margin: 1rem 0;
+            font-family: 'Rubik';
+        }
+
+        .payment-info {
+            background: #f5f5f5;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Rubik';
+        }
+
+        .payment-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            font-family: 'Rubik';
+        }
+
+        .copy-button {
+            background: darkcyan;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+
+            margin-left: 1rem;
+            font-size: 0.8rem;
+            font-family: 'Rubik';
+        }
+
+        .countdown {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: darkcyan;
+            font-family: 'Rubik';
+        }
+
+        .payment-instructions {
+            margin-top: 1rem;
+            font-family: 'Rubik';
+        }
+
+        .payment-instructions ol {
+            padding-left: 1.5rem;
+            font-family: 'Rubik';
+        }
+
+        .payment-instructions li {
+            margin-bottom: 0.5rem;
+            font-family: 'Rubik';
+        }
+
+        .qr-container {
+            text-align: center;
+            margin: 1rem 0;
+            font-family: 'Rubik';
+        }
+
+        .qr-container img {
+            max-width: 200px;
+        }
+
+        .credit-card-form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group input {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+
+        }
+
+        .submit-payment {
+            background: darkcyan;
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .empty-cart i {
+            font-size: 3rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .empty-cart p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .shop-now-btn {
+            display: inline-block;
+            background: darkcyan;
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+
+        }
+
+
+/* Tambahkan di bagian style */
+.refresh-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: darkcyan;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    font-family: 'Rubik';
+   
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.refresh-button i {
+    font-size: 1.2rem;
+}
+
+.refresh-button:hover {
+    background: #007777;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="cart.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="logo">KERTAS CORET / CHECKOUT</div>
+            <div style="width: 100px;"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="checkout-container">
+            <div class="checkout-header">
+                <h2>Ringkasan Pesanan</h2>
+            </div>
+            <div class="checkout-items">
+                <!-- Checkout items will be inserted here -->
+            </div>
+            <div class="total-price">Total: Rp0</div>
+        </div>
+        
+        <div class="payment-methods">
+            <h2>Metode Pembayaran</h2>
+            <div class="payment-method">
+                <img src="./image/checkout/bank.png" alt="Payment Method">
+                <div>
+                    <div class="payment-method-name">Transfer Bank</div>
+                    <div class="payment-method-description">Transfer melalui ATM, Internet Banking, atau Mobile Banking</div>
+                </div>
+            </div>
+            <div class="payment-method">
+                <img src="./image/checkout/qris.png" alt="Payment Method">
+                <div>
+                    <div class="payment-method-name">E-Wallet</div>
+                    <div class="payment-method-description">Bayar menggunakan e-wallet seperti Gopay, OVO, atau Dana</div>
+                </div>
+            </div>
+            <div class="payment-method">
+                <img src="./image/checkout/creditcard.png" alt="Payment Method">
+                <div>
+                    <div class="payment-method-name">Kartu Kredit</div>
+                    <div class="payment-method-description">Bayar menggunakan kartu kredit seperti Visa, Mastercard, atau JCB</div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="place-order-button">Buat Pesanan</button>
+    </main>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="paymentModalContent">
+                <!-- Payment content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function formatPrice(price) {
+            const formatted = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            }).format(price);
+            
+            return formatted.replace(/IDR\s?/, 'Rp');
+        }
+
+        function renderCheckout() {
+            const checkoutData = JSON.parse(localStorage.getItem('checkoutData')) || {};
+            const container = document.querySelector('.checkout-items');
+
+            if (Object.keys(checkoutData).length === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Keranjang belanja Anda masih kosong</p>
+                        <a href="cart.html" class="shop-now-btn">Kembali ke Keranjang</a>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = `
+                ${checkoutData.items.map((item, index) => `
+                    <div class="checkout-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="item-info">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-price">${formatPrice(item.price * (parseInt(item.quantity) || 1))}</div>
+                            <div class="quantity-value">x${item.quantity}</div>
+                        </div>
+                    </div>
+                `).join('')}
+            `;
+
+            document.querySelector('.total-price').textContent = `Total: ${formatPrice(checkoutData.total)}`;
+        }
+
+        // Initialize payment method selection
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            let selectedMethod = null;
+
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    if (selectedMethod) {
+                        selectedMethod.classList.remove('selected');
+                    }
+                    this.classList.add('selected');
+                    selectedMethod = this;
+                });
+            });
+
+            renderCheckout();
+
+            // Place order button handler
+            document.querySelector('.place-order-button').addEventListener('click', function() {
+                if (!selectedMethod) {
+                    alert('Silakan pilih metode pembayaran terlebih dahulu.');
+                    return;
+                }
+
+                const paymentType = selectedMethod.querySelector('.payment-method-name').textContent;
+                showPaymentSimulation(paymentType);
+            });
+        });
+
+        function showPaymentSimulation(paymentType) {
+    const modal = document.getElementById('paymentModal');
+    const modalContent = document.getElementById('paymentModalContent');
+    const checkoutData = JSON.parse(localStorage.getItem('checkoutData')) || {};
+    const total = checkoutData.total || 0;
+
+    let content = '';
+    
+    if (paymentType.includes('Transfer Bank')) {
+        content = `
+            <h2>Transfer Bank</h2>
+            <p>Selesaikan pembayaran dalam</p>
+            <div class="countdown">23:59</div>
+            <div class="payment-info">
+                <div class="payment-item">
+                    <span>Nomor Rekening:</span>
+                    <span>1234567890 <button class="copy-button" onclick="copyToClipboard('1234567890')">Salin</button></span>
+                </div>
+                <div class="payment-item">
+                    <span>Total Pembayaran:</span>
+                    <span>${formatPrice(total)} <button class="copy-button" onclick="copyToClipboard('${total}')">Salin</button></span>
+                </div>
+            </div>
+            <div class="payment-instructions">
+                <h3>Cara Pembayaran:</h3>
+                <ol>
+                    <li>Buka aplikasi m-banking atau internet banking Anda</li>
+                    <li>Pilih menu transfer</li>
+                    <li>Masukkan nomor rekening tujuan</li>
+                    <li>Masukkan jumlah transfer sesuai dengan total pembayaran</li>
+                    <li>Konfirmasi dan selesaikan pembayaran</li>
+                </ol>
+            </div>
+            <button class="refresh-button" onclick="redirectToPaymentSuccess()">
+                <i class="fas fa-sync-alt"></i> Refresh Status
+            </button>
+        `;
+    } else if (paymentType.includes('E-Wallet')) {
+        content = `
+            <h2>E-Wallet Payment</h2>
+            <p>Scan QR Code untuk membayar</p>
+            <div class="countdown">10:00</div>
+            <div class="qr-container">
+                <img src="./image/checkout/qris/payment-qris.png" alt="QR Code">
+            </div>
+            <div class="payment-info">
+                <div class="payment-item">
+                    <span>Total Pembayaran:</span>
+                    <span>${formatPrice(total)}</span>
+                </div>
+            </div>
+            <div class="payment-instructions">
+                <h3>Cara Pembayaran:</h3>
+                <ol>
+                    <li>Buka aplikasi e-wallet Anda</li>
+                    <li>Pilih menu scan QR</li>
+                    <li>Scan QR code di atas</li>
+                    <li>Konfirmasi pembayaran di aplikasi</li>
+                </ol>
+            </div>
+            <button class="refresh-button" onclick="redirectToPaymentSuccess()">
+                <i class="fas fa-sync-alt"></i> Refresh Status
+            </button>
+        `;
+    } else {
+        content = `
+            <h2>Pembayaran Kartu Kredit</h2>
+            <div class="payment-info">
+                <div class="payment-item">
+                    <span>Total Pembayaran:</span>
+                    <span>${formatPrice(total)}</span>
+                </div>
+            </div>
+            <form class="credit-card-form" onsubmit="event.preventDefault(); redirectToPaymentSuccess();">
+                <div class="form-group">
+                    <label>Nomor Kartu</label>
+                    <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                </div>
+                <div class="form-group">
+                    <label>Nama di Kartu</label>
+                    <input type="text" placeholder="NAMA LENGKAP" required>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <div class="form-group">
+                        <label>Expired</label>
+                        <input type="text" placeholder="MM/YY" maxlength="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="text" placeholder="123" maxlength="3" required>
+                    </div>
+                </div>
+                <button type="submit" class="submit-payment">Bayar Sekarang</button>
+            </form>
+        `;
+    }
+
+    modalContent.innerHTML = content;
+    modal.style.display = 'block';
+
+    if (paymentType.includes('Transfer Bank') || paymentType.includes('E-Wallet')) {
+        startCountdown(paymentType.includes('Transfer Bank') ? 1440 : 600, 
+                     modalContent.querySelector('.countdown'));
+    }
+}
+
+// Tambahkan fungsi untuk redirect ke payment success
+function redirectToPaymentSuccess() {
+    window.location.href = 'payment-success.html';
+}
+
+// Hapus atau ganti fungsi processPayment yang lama
+// function processPayment() {
+//     alert('Pembayaran berhasil!');
+//     document.getElementById('paymentModal').style.display = 'none';
+// }
+    </script>
+</body>
+</html>
